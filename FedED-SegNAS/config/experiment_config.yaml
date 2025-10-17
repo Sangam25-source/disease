@@ -1,0 +1,114 @@
+# FedED-SegNAS Experiment Configuration
+
+# Dataset Configuration
+dataset:
+  simulated:
+    num_samples: 4000
+    num_cases: 2000
+    num_controls: 2000
+    snp_sizes: [50, 100, 500, 1000, 2000, 5000]
+    epistasis_orders: [2, 3]
+    num_datasets_per_config: 100
+  
+  models:
+    - name: model1
+      heritability: 0.10
+      maf: 0.2
+      marginal: true
+      type: additive
+    - name: model2
+      heritability: 0.10
+      maf: 0.2
+      marginal: true
+      type: multiplicative
+    - name: model3
+      heritability: 0.15
+      maf: 0.4
+      marginal: true
+      type: heterogeneous
+    - name: model4
+      heritability: 0.15
+      maf: 0.4
+      marginal: true
+      type: threshold
+    - name: model5
+      heritability: 0.10
+      maf: 0.2
+      marginal: false
+      type: pure
+    - name: model6
+      heritability: 0.10
+      maf: 0.2
+      marginal: false
+      type: xor
+    - name: model7
+      heritability: 0.15
+      maf: 0.4
+      marginal: false
+      type: complex
+    - name: model8
+      heritability: 0.15
+      maf: 0.4
+      marginal: false
+      type: nested
+
+# Federated Learning Configuration
+federated:
+  num_clients: 50
+  num_rounds: 100
+  local_epochs: 5
+  batch_size: 64
+  test_split: 0.15
+  val_split: 0.15
+
+# Fuzzy CNN Configuration
+fuzzy_cnn:
+  num_fuzzy_sets: 3
+  num_conv_layers: 3
+  conv_filters: [64, 128, 256]
+  kernel_sizes: [3, 3, 3]
+  pool_sizes: [2, 2, 2]
+  num_dense_layers: 2
+  dense_units: [512, 256]
+  dropout_rate: 0.3
+  learning_rate: 0.001
+
+# PSO-NAS Configuration
+pso_nas:
+  population_size: 20
+  max_iterations: 10
+  search_space:
+    num_conv_layers: [1, 2, 3]
+    conv_filters: [32, 64, 128, 256]
+    kernel_sizes: [3, 5, 7]
+    pool_sizes: [2, 3]
+    num_dense_layers: [1, 2]
+    dense_units: [128, 256, 512]
+  optimization:
+    w: 0.7
+    c1: 1.5
+    c2: 1.5
+
+# Privacy Configuration
+privacy:
+  enabled: true
+  noise_scale: 0.1
+  num_groups: 10
+
+# Training Configuration
+training:
+  epochs: 50
+  early_stopping_patience: 10
+  learning_rate: 0.001
+  optimizer: adam
+
+# Evaluation Metrics
+metrics:
+  - accuracy
+  - precision
+  - recall
+  - f1_score
+  - power
+  - communication_overhead
+  - gflops
+  - num_parameters
