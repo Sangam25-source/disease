@@ -1,0 +1,402 @@
+# 🤖 ENHANCED PROMPT FOR EMERGENT AI AGENT
+## Phase 1 Completion: Data Preprocessing & Validation
+
+---
+
+## 📋 COPY THE PROMPT BELOW THIS LINE
+
+---
+
+**TASK:** Complete remaining Phase 1 tasks for FedED-SegNAS project (Data Preprocessing & Validation)
+
+**CONTEXT:**
+I have a FedED-SegNAS (Federated Epistasis Detection) project at `/app/FedED-SegNAS/` that is currently 77% complete for Phase 1. The project structure is already set up with 192 generated datasets, but only model4 has been preprocessed. I need you to:
+
+1. Preprocess model1 and model5 datasets for federated learning
+2. Create a comprehensive data validation script
+3. Run validation tests and generate quality reports
+
+---
+
+## 📁 PROJECT STRUCTURE
+
+```
+/app/FedED-SegNAS/
+├── data/
+│   ├── simulated/           # 192 raw datasets (2.1 GB)
+│   │   ├── model1/          # ✅ Generated, ❌ NOT preprocessed
+│   │   ├── model4/          # ✅ Generated, ✅ Preprocessed
+│   │   ├── model5/          # ✅ Generated, ❌ NOT preprocessed
+│   │   └── model2,3,6,7,8/  # Generated but not needed now
+│   └── processed/           # Preprocessed data
+│       └── model4/          # Only this exists
+├── experiments/
+│   ├── data_preprocessing.py    # ✅ Exists and works
+│   └── generate_simple_datasets.py
+├── utils/
+│   └── data_loader.py           # ✅ Exists
+└── requirements.txt             # All dependencies installed
+```
+
+---
+
+## 🎯 TASKS TO COMPLETE
+
+### **TASK 1: Preprocess model1 Datasets** (HIGH PRIORITY)
+**Why:** model1 has "marginal effects" - needed for training in Phase 3
+
+**What to do:**
+1. Locate all model1 raw datasets in `/app/FedED-SegNAS/data/simulated/model1/`
+2. Use existing preprocessing script: `/app/FedED-SegNAS/experiments/data_preprocessing.py`
+3. Process at least 10 datasets from model1 (both order2 and order3)
+4. Save preprocessed data to `/app/FedED-SegNAS/data/processed/model1/`
+5. Verify all preprocessed files are created correctly
+
+**Expected Output Structure:**
+```
+data/processed/model1/
+├── order2/
+│   ├── snps50/dataset_0.npz, dataset_1.npz, ...
+│   ├── snps100/dataset_0.npz, dataset_1.npz, ...
+│   └── snps500/dataset_0.npz, dataset_1.npz, ...
+└── order3/
+    ├── snps50/dataset_0.npz, dataset_1.npz, ...
+    ├── snps100/dataset_0.npz, dataset_1.npz, ...
+    └── snps500/dataset_0.npz, dataset_1.npz, ...
+```
+
+**Commands to run:**
+```bash
+cd /app/FedED-SegNAS
+python3 experiments/data_preprocessing.py
+```
+
+**Note:** The script might need modification to specify which model to process. Check the script first and adjust if needed.
+
+---
+
+### **TASK 2: Preprocess model5 Datasets** (HIGH PRIORITY)
+**Why:** model5 has "pure epistasis without marginal effects" - needed for comparison
+
+**What to do:**
+1. Locate all model5 raw datasets in `/app/FedED-SegNAS/data/simulated/model5/`
+2. Use the same preprocessing script
+3. Process at least 10 datasets from model5 (both order2 and order3)
+4. Save preprocessed data to `/app/FedED-SegNAS/data/processed/model5/`
+5. Verify all preprocessed files are created correctly
+
+**Expected Output Structure:**
+```
+data/processed/model5/
+├── order2/
+│   ├── snps50/dataset_0.npz, ...
+│   ├── snps100/dataset_0.npz, ...
+│   └── snps500/dataset_0.npz, ...
+└── order3/
+    ├── snps50/dataset_0.npz, ...
+    ├── snps100/dataset_0.npz, ...
+    └── snps500/dataset_0.npz, ...
+```
+
+---
+
+### **TASK 3: Create Data Validation Script** (MEDIUM PRIORITY)
+**Why:** Need to verify data quality before training
+
+**Create file:** `/app/FedED-SegNAS/experiments/validate_data.py`
+
+**Script Requirements:**
+
+1. **Class Balance Check**
+   - Verify 50-50 case-control distribution
+   - Alert if imbalance > 60-40
+
+2. **Missing Values Check**
+   - Scan all preprocessed datasets
+   - Report any NaN or missing values
+
+3. **Genotype Encoding Check**
+   - Ensure all values are in {0, 1, 2}
+   - Report any out-of-range values
+
+4. **Data Shape Validation**
+   - Verify correct number of samples
+   - Verify correct number of SNPs
+   - Check consistency across train/val/test splits
+
+5. **Federated Split Verification**
+   - Confirm 50 client splits exist
+   - Verify each client has data
+   - Check IID distribution
+
+6. **Statistical Summary**
+   - Calculate MAF (Minor Allele Frequency) for each dataset
+   - Generate distribution plots (save to `results/plots/`)
+   - Create summary report (save to `results/validation_report.txt`)
+
+**Example Script Structure:**
+```python
+#!/usr/bin/env python3
+"""
+Data Validation Script
+Validates quality of preprocessed datasets
+"""
+
+import numpy as np
+import sys
+import glob
+from pathlib import Path
+
+sys.path.insert(0, '/app/FedED-SegNAS')
+from utils.data_loader import DataLoader
+
+class DataValidator:
+    def __init__(self, processed_dir='/app/FedED-SegNAS/data/processed'):
+        self.processed_dir = processed_dir
+        self.validation_results = []
+    
+    def check_class_balance(self, y):
+        """Check case-control balance"""
+        unique, counts = np.unique(y, return_counts=True)
+        balance_ratio = min(counts) / max(counts)
+        return balance_ratio >= 0.4  # Allow up to 60-40 split
+    
+    def check_missing_values(self, data_dict):
+        """Check for missing values in all arrays"""
+        for key, arr in data_dict.items():
+            if np.isnan(arr).any():
+                return False
+        return True
+    
+    def check_genotype_encoding(self, X):
+        """Verify genotypes are in {0, 1, 2}"""
+        unique_values = np.unique(X)
+        return all(val in [0, 1, 2] for val in unique_values)
+    
+    def validate_dataset(self, filepath):
+        """Validate single preprocessed dataset"""
+        # Implementation here
+        pass
+    
+    def generate_report(self, output_path='results/validation_report.txt'):
+        """Generate comprehensive validation report"""
+        # Implementation here
+        pass
+    
+    def run_validation(self):
+        """Run validation on all preprocessed datasets"""
+        # Find all .npz files
+        pattern = f"{self.processed_dir}/**/*.npz"
+        datasets = glob.glob(pattern, recursive=True)
+        
+        print(f"Found {len(datasets)} preprocessed datasets")
+        
+        for dataset_path in datasets:
+            self.validate_dataset(dataset_path)
+        
+        self.generate_report()
+
+if __name__ == '__main__':
+    validator = DataValidator()
+    validator.run_validation()
+```
+
+**Output Requirements:**
+- Console output showing validation progress
+- Text report at `/app/FedED-SegNAS/results/validation_report.txt`
+- Visualization plots at `/app/FedED-SegNAS/results/plots/data_quality.png`
+
+---
+
+## 🔍 VERIFICATION STEPS
+
+After completing all tasks, verify:
+
+### Check 1: Preprocessed Files Exist
+```bash
+# Count preprocessed files for model1
+find /app/FedED-SegNAS/data/processed/model1 -name "*.npz" | wc -l
+# Should show at least 10 files
+
+# Count preprocessed files for model5
+find /app/FedED-SegNAS/data/processed/model5 -name "*.npz" | wc -l
+# Should show at least 10 files
+```
+
+### Check 2: File Sizes are Reasonable
+```bash
+# Check that files are not empty
+du -sh /app/FedED-SegNAS/data/processed/model1/
+# Should show several MB
+
+du -sh /app/FedED-SegNAS/data/processed/model5/
+# Should show several MB
+```
+
+### Check 3: Can Load Preprocessed Data
+```bash
+cd /app/FedED-SegNAS
+python3 << 'EOF'
+import numpy as np
+import sys
+sys.path.insert(0, '/app/FedED-SegNAS')
+
+# Test loading model1 data
+data1 = np.load('data/processed/model1/order2/snps50/dataset_0.npz', allow_pickle=True)
+print("✅ model1 data loaded successfully")
+print(f"   Keys: {list(data1.keys())}")
+
+# Test loading model5 data
+data5 = np.load('data/processed/model5/order2/snps50/dataset_0.npz', allow_pickle=True)
+print("✅ model5 data loaded successfully")
+print(f"   Keys: {list(data5.keys())}")
+EOF
+```
+
+### Check 4: Validation Script Works
+```bash
+cd /app/FedED-SegNAS
+python3 experiments/validate_data.py
+# Should run without errors and generate reports
+```
+
+### Check 5: Validation Report Exists
+```bash
+ls -lh /app/FedED-SegNAS/results/validation_report.txt
+cat /app/FedED-SegNAS/results/validation_report.txt
+# Should show validation summary
+```
+
+---
+
+## 📊 SUCCESS CRITERIA
+
+### Task 1 & 2 Success:
+- ✅ At least 10 .npz files in `data/processed/model1/`
+- ✅ At least 10 .npz files in `data/processed/model5/`
+- ✅ All files are valid NumPy archives
+- ✅ Files contain required keys: 'client_0_X', 'client_0_y', ..., 'validation_X', 'validation_y', 'test_X', 'test_y', 'metadata'
+- ✅ Total preprocessed size: 50-100 MB
+
+### Task 3 Success:
+- ✅ File `experiments/validate_data.py` created
+- ✅ Script runs without errors
+- ✅ Generates `results/validation_report.txt`
+- ✅ Report shows:
+  - Total datasets validated
+  - Class balance statistics
+  - Missing value checks
+  - Genotype encoding verification
+  - Pass/Fail summary
+
+---
+
+## ⚠️ IMPORTANT NOTES
+
+1. **Preprocessing Script Compatibility:**
+   - The existing `data_preprocessing.py` is designed to work with GAMETES format
+   - It should automatically detect and process datasets
+   - If script needs modification, update it carefully
+
+2. **File Format:**
+   - Preprocessed files MUST be `.npz` format (NumPy compressed)
+   - Each file must contain 50 client splits
+   - Maintain train/val/test ratio: 70%/15%/15%
+
+3. **Memory Management:**
+   - Process datasets one at a time to avoid memory issues
+   - Use batch processing if needed
+
+4. **Error Handling:**
+   - If a dataset fails to preprocess, log it and continue
+   - Don't halt entire process for single file failures
+
+5. **Documentation:**
+   - Add comments explaining any script modifications
+   - Update STATUS.md when tasks are complete
+
+---
+
+## 📝 DELIVERABLES
+
+At the end, provide:
+
+1. **Summary Report** showing:
+   - Number of model1 datasets preprocessed
+   - Number of model5 datasets preprocessed
+   - Total storage used
+   - Validation results summary
+
+2. **File Listing:**
+   ```bash
+   tree /app/FedED-SegNAS/data/processed/ -L 3
+   ```
+
+3. **Validation Report Contents:**
+   ```bash
+   cat /app/FedED-SegNAS/results/validation_report.txt
+   ```
+
+4. **Confirmation** that all verification steps passed
+
+---
+
+## 🚀 EXECUTION ORDER
+
+Please execute in this order:
+
+1. **First:** Explore existing preprocessing script
+   ```bash
+   cat /app/FedED-SegNAS/experiments/data_preprocessing.py
+   ```
+
+2. **Second:** Run preprocessing for model1
+   - Check if script needs modification
+   - Process datasets
+   - Verify output
+
+3. **Third:** Run preprocessing for model5
+   - Use same approach
+   - Verify output
+
+4. **Fourth:** Create validation script
+   - Implement all required checks
+   - Test on preprocessed data
+
+5. **Fifth:** Run validation and generate reports
+
+6. **Finally:** Provide summary and confirmation
+
+---
+
+## 💬 COMMUNICATION STYLE
+
+Please:
+- Show progress as you work through each task
+- Report any errors or issues encountered
+- Provide clear success/failure status for each task
+- Include file paths and outputs in your responses
+- Use verification commands to confirm completion
+
+---
+
+## 🎯 END GOAL
+
+After completion, Phase 1 should be:
+- **Before:** 77% Complete
+- **After:** ✅ **95-100% Complete**
+
+With:
+- ✅ model1 preprocessed (10+ datasets)
+- ✅ model5 preprocessed (10+ datasets)
+- ✅ Data validation script created and run
+- ✅ Validation report generated
+- ✅ All quality checks passed
+
+**This will make the project ready for Phase 2 (Fuzzy CNN) and Phase 3 (Training)!**
+
+---
+
+**END OF PROMPT - BEGIN EXECUTION**
+
+---
