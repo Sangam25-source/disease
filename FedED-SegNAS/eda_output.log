@@ -1,0 +1,1248 @@
+======================================================================
+🧬 SNP EPISTASIS DATASETS - COMPREHENSIVE EDA
+======================================================================
+
+🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯
+🔬 ANALYZING MODEL1
+🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯
+
+📂 Loading dataset: data/simulated/model1/order2/snps50/dataset_0.txt
+
+======================================================================
+🔍 BASIC CHECKS - MODEL1
+======================================================================
+
+📊 Dataset Shape: 4000 samples × 51 columns
+   - SNP columns: 50
+   - Disease column: 1
+
+🔎 Missing Values: 0
+   ✅ No missing values
+
+✅ SNP Encoding Valid: All SNPs contain only (0, 1, 2)
+✅ Disease Encoding Valid: {np.int64(0), np.int64(1)}
+
+📋 First 5 rows:
+   SNP1  SNP2  SNP3  SNP4  SNP5  ...  SNP47  SNP48  SNP49  SNP50  Disease
+0     0     0     0     0     0  ...      0      0      0      0        1
+1     0     0     1     0     0  ...      0      0      0      0        0
+2     0     1     0     0     0  ...      0      1      0      1        1
+3     1     1     0     0     0  ...      0      1      1      1        1
+4     0     0     0     0     1  ...      0      0      1      0        0
+
+[5 rows x 51 columns]
+
+======================================================================
+📊 LABEL DISTRIBUTION - MODEL1
+======================================================================
+
+📈 Disease Label Counts:
+   Healthy (0): 2,000 (50.00%)
+   Diseased (1): 2,000 (50.00%)
+   ✅ Well-balanced dataset (ratio: 1.000)
+
+======================================================================
+🧬 SNP VALUE DISTRIBUTION - MODEL1
+======================================================================
+
+📊 Genotype Frequencies Across All SNPs:
+   0 (AA (homozygous normal)): 127,905 (63.95%)
+   1 (Aa (heterozygous)): 64,131 (32.07%)
+   2 (aa (homozygous mutant)): 7,964 (3.98%)
+
+======================================================================
+🧪 MINOR ALLELE FREQUENCY (MAF) - MODEL1
+======================================================================
+
+📊 MAF Statistics:
+   Mean MAF: 0.2001
+   Median MAF: 0.1999
+   Std Dev: 0.0048
+   Min MAF: 0.1906
+   Max MAF: 0.2115
+
+🎯 Expected MAF: 0.2
+   Observed vs Expected: 0.2001 vs 0.2
+
+======================================================================
+🔗 CORRELATION ANALYSIS - MODEL1
+======================================================================
+
+📊 SNP-SNP Correlation Statistics:
+   Mean correlation: 0.0001
+   Median correlation: 0.0004
+   Std Dev: 0.0157
+   Max correlation: 0.0454
+   Min correlation: -0.0461
+
+✅ No high correlations found (all |r| <= 0.5)
+
+======================================================================
+🎯 SNP-DISEASE ASSOCIATION - MODEL1
+======================================================================
+
+📊 SNP-Disease Correlation Statistics:
+   Mean |correlation|: 0.0190
+   Max correlation: 0.1831
+   Min correlation: -0.0355
+
+🔝 Top 10 SNPs Most Correlated with Disease:
+    1. SNP2: 0.1831
+    2. SNP1: 0.1694
+    3. SNP18: 0.0297
+    4. SNP41: 0.0283
+    5. SNP39: 0.0274
+    6. SNP10: 0.0225
+    7. SNP4: 0.0154
+    8. SNP30: 0.0120
+    9. SNP9: 0.0104
+   10. SNP20: 0.0095
+
+💡 Interpretation:
+   ✅ PURE EPISTASIS PATTERN
+      Max |correlation| = 0.1831 <= 0.3
+      No individual SNP strongly associated - interactions matter!
+
+🎯 Expected Marginal Effects: Yes
+   Observed matches expected: False
+
+======================================================================
+🔬 DIMENSIONALITY REDUCTION - MODEL1
+======================================================================
+
+📊 Performing PCA...
+   PC1 explains: 2.47% variance
+   PC2 explains: 2.39% variance
+   Total: 4.87%
+
+📊 Performing t-SNE...
+✅ Dimensionality reduction complete
+
+======================================================================
+📋 SUMMARY STATISTICS - MODEL1
+======================================================================
+
+📊 Dataset Summary:
+   Model: model1
+   Type: Additive
+   Samples: 4000
+   SNPs: 50
+   Missing_Values: 0
+   Label_Balance_%: 50.0000
+   Mean_MAF: 0.2001
+   Expected_MAF: 0.2000
+   Mean_SNP_SNP_Corr: 0.0001
+   Mean_SNP_Disease_Corr: 0.0190
+   Top_SNP: SNP2
+   Top_SNP_Corr: 0.1831
+   Marginal_Effects: No
+   Expected_Marginal: Yes
+   Heritability: 0.1000
+   PCA_Variance_%: 4.8688
+
+💾 Summary saved to: results/eda/EDA_summary_model1.csv
+
+✅ Analysis complete for model1
+
+🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯
+🔬 ANALYZING MODEL2
+🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯
+
+📂 Loading dataset: data/simulated/model2/order2/snps50/dataset_0.txt
+
+======================================================================
+🔍 BASIC CHECKS - MODEL2
+======================================================================
+
+📊 Dataset Shape: 4000 samples × 51 columns
+   - SNP columns: 50
+   - Disease column: 1
+
+🔎 Missing Values: 0
+   ✅ No missing values
+
+✅ SNP Encoding Valid: All SNPs contain only (0, 1, 2)
+✅ Disease Encoding Valid: {np.int64(0), np.int64(1)}
+
+📋 First 5 rows:
+   SNP1  SNP2  SNP3  SNP4  SNP5  ...  SNP47  SNP48  SNP49  SNP50  Disease
+0     1     0     0     0     0  ...      0      0      0      0        1
+1     0     0     1     1     0  ...      0      0      0      1        1
+2     0     0     0     1     1  ...      0      0      0      1        1
+3     1     1     0     1     2  ...      1      0      0      1        1
+4     1     0     0     0     0  ...      1      0      0      1        0
+
+[5 rows x 51 columns]
+
+======================================================================
+📊 LABEL DISTRIBUTION - MODEL2
+======================================================================
+
+📈 Disease Label Counts:
+   Healthy (0): 2,000 (50.00%)
+   Diseased (1): 2,000 (50.00%)
+   ✅ Well-balanced dataset (ratio: 1.000)
+
+======================================================================
+🧬 SNP VALUE DISTRIBUTION - MODEL2
+======================================================================
+
+📊 Genotype Frequencies Across All SNPs:
+   0 (AA (homozygous normal)): 128,332 (64.17%)
+   1 (Aa (heterozygous)): 63,822 (31.91%)
+   2 (aa (homozygous mutant)): 7,846 (3.92%)
+
+======================================================================
+🧪 MINOR ALLELE FREQUENCY (MAF) - MODEL2
+======================================================================
+
+📊 MAF Statistics:
+   Mean MAF: 0.1988
+   Median MAF: 0.1981
+   Std Dev: 0.0044
+   Min MAF: 0.1910
+   Max MAF: 0.2086
+
+🎯 Expected MAF: 0.2
+   Observed vs Expected: 0.1988 vs 0.2
+
+======================================================================
+🔗 CORRELATION ANALYSIS - MODEL2
+======================================================================
+
+📊 SNP-SNP Correlation Statistics:
+   Mean correlation: -0.0004
+   Median correlation: -0.0003
+   Std Dev: 0.0158
+   Max correlation: 0.0477
+   Min correlation: -0.0480
+
+✅ No high correlations found (all |r| <= 0.5)
+
+======================================================================
+🎯 SNP-DISEASE ASSOCIATION - MODEL2
+======================================================================
+
+📊 SNP-Disease Correlation Statistics:
+   Mean |correlation|: 0.0198
+   Max correlation: 0.1821
+   Min correlation: -0.0225
+
+🔝 Top 10 SNPs Most Correlated with Disease:
+    1. SNP1: 0.1821
+    2. SNP2: 0.1797
+    3. SNP8: 0.0506
+    4. SNP41: 0.0395
+    5. SNP5: 0.0336
+    6. SNP35: 0.0293
+    7. SNP45: 0.0211
+    8. SNP40: 0.0197
+    9. SNP31: 0.0193
+   10. SNP46: 0.0188
+
+💡 Interpretation:
+   ✅ PURE EPISTASIS PATTERN
+      Max |correlation| = 0.1821 <= 0.3
+      No individual SNP strongly associated - interactions matter!
+
+🎯 Expected Marginal Effects: Yes
+   Observed matches expected: False
+
+======================================================================
+🔬 DIMENSIONALITY REDUCTION - MODEL2
+======================================================================
+
+📊 Performing PCA...
+   PC1 explains: 2.43% variance
+   PC2 explains: 2.41% variance
+   Total: 4.84%
+
+📊 Performing t-SNE...
+✅ Dimensionality reduction complete
+
+======================================================================
+📋 SUMMARY STATISTICS - MODEL2
+======================================================================
+
+📊 Dataset Summary:
+   Model: model2
+   Type: Multiplicative
+   Samples: 4000
+   SNPs: 50
+   Missing_Values: 0
+   Label_Balance_%: 50.0000
+   Mean_MAF: 0.1988
+   Expected_MAF: 0.2000
+   Mean_SNP_SNP_Corr: -0.0004
+   Mean_SNP_Disease_Corr: 0.0198
+   Top_SNP: SNP1
+   Top_SNP_Corr: 0.1821
+   Marginal_Effects: No
+   Expected_Marginal: Yes
+   Heritability: 0.1000
+   PCA_Variance_%: 4.8354
+
+💾 Summary saved to: results/eda/EDA_summary_model2.csv
+
+✅ Analysis complete for model2
+
+🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯
+🔬 ANALYZING MODEL3
+🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯
+
+📂 Loading dataset: data/simulated/model3/order2/snps50/dataset_0.txt
+
+======================================================================
+🔍 BASIC CHECKS - MODEL3
+======================================================================
+
+📊 Dataset Shape: 4000 samples × 51 columns
+   - SNP columns: 50
+   - Disease column: 1
+
+🔎 Missing Values: 0
+   ✅ No missing values
+
+✅ SNP Encoding Valid: All SNPs contain only (0, 1, 2)
+✅ Disease Encoding Valid: {np.int64(0), np.int64(1)}
+
+📋 First 5 rows:
+   SNP1  SNP2  SNP3  SNP4  SNP5  ...  SNP47  SNP48  SNP49  SNP50  Disease
+0     2     1     0     0     2  ...      1      0      0      1        1
+1     0     0     0     1     2  ...      0      1      1      0        0
+2     1     0     1     1     0  ...      1      1      1      2        0
+3     1     1     1     1     1  ...      0      1      0      1        1
+4     1     2     1     1     0  ...      0      1      0      2        1
+
+[5 rows x 51 columns]
+
+======================================================================
+📊 LABEL DISTRIBUTION - MODEL3
+======================================================================
+
+📈 Disease Label Counts:
+   Healthy (0): 2,000 (50.00%)
+   Diseased (1): 2,000 (50.00%)
+   ✅ Well-balanced dataset (ratio: 1.000)
+
+======================================================================
+🧬 SNP VALUE DISTRIBUTION - MODEL3
+======================================================================
+
+📊 Genotype Frequencies Across All SNPs:
+   0 (AA (homozygous normal)): 71,982 (35.99%)
+   1 (Aa (heterozygous)): 95,728 (47.86%)
+   2 (aa (homozygous mutant)): 32,290 (16.14%)
+
+======================================================================
+🧪 MINOR ALLELE FREQUENCY (MAF) - MODEL3
+======================================================================
+
+📊 MAF Statistics:
+   Mean MAF: 0.4008
+   Median MAF: 0.4012
+   Std Dev: 0.0044
+   Min MAF: 0.3897
+   Max MAF: 0.4100
+
+🎯 Expected MAF: 0.4
+   Observed vs Expected: 0.4008 vs 0.4
+
+======================================================================
+🔗 CORRELATION ANALYSIS - MODEL3
+======================================================================
+
+📊 SNP-SNP Correlation Statistics:
+   Mean correlation: 0.0002
+   Median correlation: 0.0000
+   Std Dev: 0.0159
+   Max correlation: 0.0581
+   Min correlation: -0.0553
+
+✅ No high correlations found (all |r| <= 0.5)
+
+======================================================================
+🎯 SNP-DISEASE ASSOCIATION - MODEL3
+======================================================================
+
+📊 SNP-Disease Correlation Statistics:
+   Mean |correlation|: 0.0301
+   Max correlation: 0.4605
+   Min correlation: -0.0348
+
+🔝 Top 10 SNPs Most Correlated with Disease:
+    1. SNP1: 0.4605
+    2. SNP2: 0.4542
+    3. SNP30: 0.0392
+    4. SNP45: 0.0294
+    5. SNP36: 0.0289
+    6. SNP46: 0.0243
+    7. SNP42: 0.0221
+    8. SNP8: 0.0211
+    9. SNP18: 0.0197
+   10. SNP11: 0.0166
+
+💡 Interpretation:
+   ✅ MARGINAL EFFECTS DETECTED
+      Max |correlation| = 0.4605 > 0.3
+      Individual SNPs show association with disease
+
+🎯 Expected Marginal Effects: Yes
+   Observed matches expected: True
+
+======================================================================
+🔬 DIMENSIONALITY REDUCTION - MODEL3
+======================================================================
+
+📊 Performing PCA...
+   PC1 explains: 2.46% variance
+   PC2 explains: 2.41% variance
+   Total: 4.87%
+
+📊 Performing t-SNE...
+✅ Dimensionality reduction complete
+
+======================================================================
+📋 SUMMARY STATISTICS - MODEL3
+======================================================================
+
+📊 Dataset Summary:
+   Model: model3
+   Type: Heterogeneous
+   Samples: 4000
+   SNPs: 50
+   Missing_Values: 0
+   Label_Balance_%: 50.0000
+   Mean_MAF: 0.4008
+   Expected_MAF: 0.4000
+   Mean_SNP_SNP_Corr: 0.0002
+   Mean_SNP_Disease_Corr: 0.0301
+   Top_SNP: SNP1
+   Top_SNP_Corr: 0.4605
+   Marginal_Effects: Yes
+   Expected_Marginal: Yes
+   Heritability: 0.1500
+   PCA_Variance_%: 4.8729
+
+💾 Summary saved to: results/eda/EDA_summary_model3.csv
+
+✅ Analysis complete for model3
+
+🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯
+🔬 ANALYZING MODEL4
+🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯
+
+📂 Loading dataset: data/simulated/model4/order3/snps50/dataset_0.txt
+
+======================================================================
+🔍 BASIC CHECKS - MODEL4
+======================================================================
+
+📊 Dataset Shape: 4000 samples × 51 columns
+   - SNP columns: 50
+   - Disease column: 1
+
+🔎 Missing Values: 0
+   ✅ No missing values
+
+✅ SNP Encoding Valid: All SNPs contain only (0, 1, 2)
+✅ Disease Encoding Valid: {np.int64(0), np.int64(1)}
+
+📋 First 5 rows:
+   SNP1  SNP2  SNP3  SNP4  SNP5  ...  SNP47  SNP48  SNP49  SNP50  Disease
+0     0     1     0     0     0  ...      0      0      0      1        1
+1     0     0     1     1     1  ...      2      1      2      0        1
+2     0     0     1     1     0  ...      2      2      0      1        0
+3     0     2     1     0     2  ...      0      1      0      1        0
+4     2     0     0     1     1  ...      1      1      1      0        0
+
+[5 rows x 51 columns]
+
+======================================================================
+📊 LABEL DISTRIBUTION - MODEL4
+======================================================================
+
+📈 Disease Label Counts:
+   Healthy (0): 2,000 (50.00%)
+   Diseased (1): 2,000 (50.00%)
+   ✅ Well-balanced dataset (ratio: 1.000)
+
+======================================================================
+🧬 SNP VALUE DISTRIBUTION - MODEL4
+======================================================================
+
+📊 Genotype Frequencies Across All SNPs:
+   0 (AA (homozygous normal)): 72,493 (36.25%)
+   1 (Aa (heterozygous)): 95,430 (47.72%)
+   2 (aa (homozygous mutant)): 32,077 (16.04%)
+
+======================================================================
+🧪 MINOR ALLELE FREQUENCY (MAF) - MODEL4
+======================================================================
+
+📊 MAF Statistics:
+   Mean MAF: 0.3990
+   Median MAF: 0.3984
+   Std Dev: 0.0048
+   Min MAF: 0.3881
+   Max MAF: 0.4100
+
+🎯 Expected MAF: 0.4
+   Observed vs Expected: 0.3990 vs 0.4
+
+======================================================================
+🔗 CORRELATION ANALYSIS - MODEL4
+======================================================================
+
+📊 SNP-SNP Correlation Statistics:
+   Mean correlation: 0.0005
+   Median correlation: 0.0005
+   Std Dev: 0.0161
+   Max correlation: 0.0613
+   Min correlation: -0.0487
+
+✅ No high correlations found (all |r| <= 0.5)
+
+======================================================================
+🎯 SNP-DISEASE ASSOCIATION - MODEL4
+======================================================================
+
+📊 SNP-Disease Correlation Statistics:
+   Mean |correlation|: 0.0233
+   Max correlation: 0.2383
+   Min correlation: -0.0292
+
+🔝 Top 10 SNPs Most Correlated with Disease:
+    1. SNP1: 0.2383
+    2. SNP3: 0.2373
+    3. SNP2: 0.2105
+    4. SNP9: 0.0256
+    5. SNP37: 0.0208
+    6. SNP46: 0.0183
+    7. SNP23: 0.0169
+    8. SNP31: 0.0153
+    9. SNP28: 0.0141
+   10. SNP8: 0.0127
+
+💡 Interpretation:
+   ✅ PURE EPISTASIS PATTERN
+      Max |correlation| = 0.2383 <= 0.3
+      No individual SNP strongly associated - interactions matter!
+
+🎯 Expected Marginal Effects: Yes
+   Observed matches expected: False
+
+======================================================================
+🔬 DIMENSIONALITY REDUCTION - MODEL4
+======================================================================
+
+📊 Performing PCA...
+   PC1 explains: 2.41% variance
+   PC2 explains: 2.41% variance
+   Total: 4.82%
+
+📊 Performing t-SNE...
+✅ Dimensionality reduction complete
+
+======================================================================
+📋 SUMMARY STATISTICS - MODEL4
+======================================================================
+
+📊 Dataset Summary:
+   Model: model4
+   Type: Threshold
+   Samples: 4000
+   SNPs: 50
+   Missing_Values: 0
+   Label_Balance_%: 50.0000
+   Mean_MAF: 0.3990
+   Expected_MAF: 0.4000
+   Mean_SNP_SNP_Corr: 0.0005
+   Mean_SNP_Disease_Corr: 0.0233
+   Top_SNP: SNP1
+   Top_SNP_Corr: 0.2383
+   Marginal_Effects: No
+   Expected_Marginal: Yes
+   Heritability: 0.1500
+   PCA_Variance_%: 4.8211
+
+💾 Summary saved to: results/eda/EDA_summary_model4.csv
+
+✅ Analysis complete for model4
+
+🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯
+🔬 ANALYZING MODEL5
+🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯
+
+📂 Loading dataset: data/simulated/model5/order2/snps50/dataset_0.txt
+
+======================================================================
+🔍 BASIC CHECKS - MODEL5
+======================================================================
+
+📊 Dataset Shape: 4000 samples × 51 columns
+   - SNP columns: 50
+   - Disease column: 1
+
+🔎 Missing Values: 0
+   ✅ No missing values
+
+✅ SNP Encoding Valid: All SNPs contain only (0, 1, 2)
+✅ Disease Encoding Valid: {np.int64(0), np.int64(1)}
+
+📋 First 5 rows:
+   SNP1  SNP2  SNP3  SNP4  SNP5  ...  SNP47  SNP48  SNP49  SNP50  Disease
+0     0     0     1     1     0  ...      0      0      0      0        0
+1     0     1     0     0     0  ...      2      0      0      0        1
+2     2     0     0     0     0  ...      0      0      0      0        0
+3     0     0     1     0     0  ...      0      0      0      1        1
+4     0     1     0     1     1  ...      1      0      0      0        1
+
+[5 rows x 51 columns]
+
+======================================================================
+📊 LABEL DISTRIBUTION - MODEL5
+======================================================================
+
+📈 Disease Label Counts:
+   Healthy (0): 2,000 (50.00%)
+   Diseased (1): 2,000 (50.00%)
+   ✅ Well-balanced dataset (ratio: 1.000)
+
+======================================================================
+🧬 SNP VALUE DISTRIBUTION - MODEL5
+======================================================================
+
+📊 Genotype Frequencies Across All SNPs:
+   0 (AA (homozygous normal)): 127,929 (63.96%)
+   1 (Aa (heterozygous)): 64,015 (32.01%)
+   2 (aa (homozygous mutant)): 8,056 (4.03%)
+
+======================================================================
+🧪 MINOR ALLELE FREQUENCY (MAF) - MODEL5
+======================================================================
+
+📊 MAF Statistics:
+   Mean MAF: 0.2003
+   Median MAF: 0.2010
+   Std Dev: 0.0048
+   Min MAF: 0.1901
+   Max MAF: 0.2134
+
+🎯 Expected MAF: 0.2
+   Observed vs Expected: 0.2003 vs 0.2
+
+======================================================================
+🔗 CORRELATION ANALYSIS - MODEL5
+======================================================================
+
+📊 SNP-SNP Correlation Statistics:
+   Mean correlation: -0.0007
+   Median correlation: -0.0002
+   Std Dev: 0.0155
+   Max correlation: 0.0554
+   Min correlation: -0.0543
+
+✅ No high correlations found (all |r| <= 0.5)
+
+======================================================================
+🎯 SNP-DISEASE ASSOCIATION - MODEL5
+======================================================================
+
+📊 SNP-Disease Correlation Statistics:
+   Mean |correlation|: 0.0207
+   Max correlation: 0.2109
+   Min correlation: -0.0365
+
+🔝 Top 10 SNPs Most Correlated with Disease:
+    1. SNP2: 0.2109
+    2. SNP1: 0.1524
+    3. SNP27: 0.0403
+    4. SNP30: 0.0340
+    5. SNP37: 0.0284
+    6. SNP11: 0.0260
+    7. SNP17: 0.0223
+    8. SNP10: 0.0165
+    9. SNP24: 0.0158
+   10. SNP45: 0.0114
+
+💡 Interpretation:
+   ✅ PURE EPISTASIS PATTERN
+      Max |correlation| = 0.2109 <= 0.3
+      No individual SNP strongly associated - interactions matter!
+
+🎯 Expected Marginal Effects: No
+   Observed matches expected: True
+
+======================================================================
+🔬 DIMENSIONALITY REDUCTION - MODEL5
+======================================================================
+
+📊 Performing PCA...
+   PC1 explains: 2.49% variance
+   PC2 explains: 2.39% variance
+   Total: 4.87%
+
+📊 Performing t-SNE...
+✅ Dimensionality reduction complete
+
+======================================================================
+📋 SUMMARY STATISTICS - MODEL5
+======================================================================
+
+📊 Dataset Summary:
+   Model: model5
+   Type: Pure Epistasis
+   Samples: 4000
+   SNPs: 50
+   Missing_Values: 0
+   Label_Balance_%: 50.0000
+   Mean_MAF: 0.2003
+   Expected_MAF: 0.2000
+   Mean_SNP_SNP_Corr: -0.0007
+   Mean_SNP_Disease_Corr: 0.0207
+   Top_SNP: SNP2
+   Top_SNP_Corr: 0.2109
+   Marginal_Effects: No
+   Expected_Marginal: No
+   Heritability: 0.1000
+   PCA_Variance_%: 4.8736
+
+💾 Summary saved to: results/eda/EDA_summary_model5.csv
+
+✅ Analysis complete for model5
+
+🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯
+🔬 ANALYZING MODEL6
+🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯
+
+📂 Loading dataset: data/simulated/model6/order2/snps50/dataset_0.txt
+
+======================================================================
+🔍 BASIC CHECKS - MODEL6
+======================================================================
+
+📊 Dataset Shape: 4000 samples × 51 columns
+   - SNP columns: 50
+   - Disease column: 1
+
+🔎 Missing Values: 0
+   ✅ No missing values
+
+✅ SNP Encoding Valid: All SNPs contain only (0, 1, 2)
+✅ Disease Encoding Valid: {np.int64(0), np.int64(1)}
+
+📋 First 5 rows:
+   SNP1  SNP2  SNP3  SNP4  SNP5  ...  SNP47  SNP48  SNP49  SNP50  Disease
+0     0     2     0     0     0  ...      0      1      0      1        0
+1     0     0     0     0     2  ...      0      1      1      1        0
+2     0     0     0     0     0  ...      1      0      0      1        0
+3     0     1     0     0     0  ...      0      1      1      0        1
+4     1     1     1     0     1  ...      1      0      1      0        1
+
+[5 rows x 51 columns]
+
+======================================================================
+📊 LABEL DISTRIBUTION - MODEL6
+======================================================================
+
+📈 Disease Label Counts:
+   Healthy (0): 2,000 (50.00%)
+   Diseased (1): 2,000 (50.00%)
+   ✅ Well-balanced dataset (ratio: 1.000)
+
+======================================================================
+🧬 SNP VALUE DISTRIBUTION - MODEL6
+======================================================================
+
+📊 Genotype Frequencies Across All SNPs:
+   0 (AA (homozygous normal)): 127,628 (63.81%)
+   1 (Aa (heterozygous)): 64,208 (32.10%)
+   2 (aa (homozygous mutant)): 8,164 (4.08%)
+
+======================================================================
+🧪 MINOR ALLELE FREQUENCY (MAF) - MODEL6
+======================================================================
+
+📊 MAF Statistics:
+   Mean MAF: 0.2013
+   Median MAF: 0.2009
+   Std Dev: 0.0042
+   Min MAF: 0.1935
+   Max MAF: 0.2094
+
+🎯 Expected MAF: 0.2
+   Observed vs Expected: 0.2013 vs 0.2
+
+======================================================================
+🔗 CORRELATION ANALYSIS - MODEL6
+======================================================================
+
+📊 SNP-SNP Correlation Statistics:
+   Mean correlation: 0.0002
+   Median correlation: 0.0003
+   Std Dev: 0.0157
+   Max correlation: 0.0501
+   Min correlation: -0.0489
+
+✅ No high correlations found (all |r| <= 0.5)
+
+======================================================================
+🎯 SNP-DISEASE ASSOCIATION - MODEL6
+======================================================================
+
+📊 SNP-Disease Correlation Statistics:
+   Mean |correlation|: 0.0199
+   Max correlation: 0.1895
+   Min correlation: -0.0373
+
+🔝 Top 10 SNPs Most Correlated with Disease:
+    1. SNP1: 0.1895
+    2. SNP2: 0.1700
+    3. SNP32: 0.0338
+    4. SNP5: 0.0293
+    5. SNP7: 0.0276
+    6. SNP43: 0.0266
+    7. SNP42: 0.0161
+    8. SNP46: 0.0152
+    9. SNP30: 0.0136
+   10. SNP9: 0.0129
+
+💡 Interpretation:
+   ✅ PURE EPISTASIS PATTERN
+      Max |correlation| = 0.1895 <= 0.3
+      No individual SNP strongly associated - interactions matter!
+
+🎯 Expected Marginal Effects: No
+   Observed matches expected: True
+
+======================================================================
+🔬 DIMENSIONALITY REDUCTION - MODEL6
+======================================================================
+
+📊 Performing PCA...
+   PC1 explains: 2.44% variance
+   PC2 explains: 2.39% variance
+   Total: 4.83%
+
+📊 Performing t-SNE...
+✅ Dimensionality reduction complete
+
+======================================================================
+📋 SUMMARY STATISTICS - MODEL6
+======================================================================
+
+📊 Dataset Summary:
+   Model: model6
+   Type: XOR-like
+   Samples: 4000
+   SNPs: 50
+   Missing_Values: 0
+   Label_Balance_%: 50.0000
+   Mean_MAF: 0.2013
+   Expected_MAF: 0.2000
+   Mean_SNP_SNP_Corr: 0.0002
+   Mean_SNP_Disease_Corr: 0.0199
+   Top_SNP: SNP1
+   Top_SNP_Corr: 0.1895
+   Marginal_Effects: No
+   Expected_Marginal: No
+   Heritability: 0.1000
+   PCA_Variance_%: 4.8260
+
+💾 Summary saved to: results/eda/EDA_summary_model6.csv
+
+✅ Analysis complete for model6
+
+🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯
+🔬 ANALYZING MODEL7
+🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯
+
+📂 Loading dataset: data/simulated/model7/order2/snps50/dataset_0.txt
+
+======================================================================
+🔍 BASIC CHECKS - MODEL7
+======================================================================
+
+📊 Dataset Shape: 4000 samples × 51 columns
+   - SNP columns: 50
+   - Disease column: 1
+
+🔎 Missing Values: 0
+   ✅ No missing values
+
+✅ SNP Encoding Valid: All SNPs contain only (0, 1, 2)
+✅ Disease Encoding Valid: {np.int64(0), np.int64(1)}
+
+📋 First 5 rows:
+   SNP1  SNP2  SNP3  SNP4  SNP5  ...  SNP47  SNP48  SNP49  SNP50  Disease
+0     1     1     2     1     1  ...      0      1      2      2        1
+1     1     1     0     1     1  ...      1      1      1      1        1
+2     0     1     2     2     1  ...      1      0      0      1        0
+3     1     0     1     1     0  ...      0      0      1      2        0
+4     1     2     2     1     0  ...      0      1      1      1        1
+
+[5 rows x 51 columns]
+
+======================================================================
+📊 LABEL DISTRIBUTION - MODEL7
+======================================================================
+
+📈 Disease Label Counts:
+   Healthy (0): 2,000 (50.00%)
+   Diseased (1): 2,000 (50.00%)
+   ✅ Well-balanced dataset (ratio: 1.000)
+
+======================================================================
+🧬 SNP VALUE DISTRIBUTION - MODEL7
+======================================================================
+
+📊 Genotype Frequencies Across All SNPs:
+   0 (AA (homozygous normal)): 72,146 (36.07%)
+   1 (Aa (heterozygous)): 95,886 (47.94%)
+   2 (aa (homozygous mutant)): 31,968 (15.98%)
+
+======================================================================
+🧪 MINOR ALLELE FREQUENCY (MAF) - MODEL7
+======================================================================
+
+📊 MAF Statistics:
+   Mean MAF: 0.3996
+   Median MAF: 0.3994
+   Std Dev: 0.0062
+   Min MAF: 0.3842
+   Max MAF: 0.4153
+
+🎯 Expected MAF: 0.4
+   Observed vs Expected: 0.3996 vs 0.4
+
+======================================================================
+🔗 CORRELATION ANALYSIS - MODEL7
+======================================================================
+
+📊 SNP-SNP Correlation Statistics:
+   Mean correlation: -0.0007
+   Median correlation: -0.0006
+   Std Dev: 0.0156
+   Max correlation: 0.0504
+   Min correlation: -0.0605
+
+✅ No high correlations found (all |r| <= 0.5)
+
+======================================================================
+🎯 SNP-DISEASE ASSOCIATION - MODEL7
+======================================================================
+
+📊 SNP-Disease Correlation Statistics:
+   Mean |correlation|: 0.0335
+   Max correlation: 0.4705
+   Min correlation: -0.0445
+
+🔝 Top 10 SNPs Most Correlated with Disease:
+    1. SNP1: 0.4705
+    2. SNP2: 0.4626
+    3. SNP18: 0.0508
+    4. SNP5: 0.0441
+    5. SNP37: 0.0398
+    6. SNP10: 0.0353
+    7. SNP44: 0.0351
+    8. SNP32: 0.0320
+    9. SNP22: 0.0263
+   10. SNP43: 0.0222
+
+💡 Interpretation:
+   ✅ MARGINAL EFFECTS DETECTED
+      Max |correlation| = 0.4705 > 0.3
+      Individual SNPs show association with disease
+
+🎯 Expected Marginal Effects: No
+   Observed matches expected: False
+
+======================================================================
+🔬 DIMENSIONALITY REDUCTION - MODEL7
+======================================================================
+
+📊 Performing PCA...
+   PC1 explains: 2.44% variance
+   PC2 explains: 2.41% variance
+   Total: 4.85%
+
+📊 Performing t-SNE...
+✅ Dimensionality reduction complete
+
+======================================================================
+📋 SUMMARY STATISTICS - MODEL7
+======================================================================
+
+📊 Dataset Summary:
+   Model: model7
+   Type: Complex
+   Samples: 4000
+   SNPs: 50
+   Missing_Values: 0
+   Label_Balance_%: 50.0000
+   Mean_MAF: 0.3996
+   Expected_MAF: 0.4000
+   Mean_SNP_SNP_Corr: -0.0007
+   Mean_SNP_Disease_Corr: 0.0335
+   Top_SNP: SNP1
+   Top_SNP_Corr: 0.4705
+   Marginal_Effects: Yes
+   Expected_Marginal: No
+   Heritability: 0.1500
+   PCA_Variance_%: 4.8535
+
+💾 Summary saved to: results/eda/EDA_summary_model7.csv
+
+✅ Analysis complete for model7
+
+🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯
+🔬 ANALYZING MODEL8
+🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯🎯
+
+📂 Loading dataset: data/simulated/model8/order2/snps50/dataset_0.txt
+
+======================================================================
+🔍 BASIC CHECKS - MODEL8
+======================================================================
+
+📊 Dataset Shape: 4000 samples × 51 columns
+   - SNP columns: 50
+   - Disease column: 1
+
+🔎 Missing Values: 0
+   ✅ No missing values
+
+✅ SNP Encoding Valid: All SNPs contain only (0, 1, 2)
+✅ Disease Encoding Valid: {np.int64(0), np.int64(1)}
+
+📋 First 5 rows:
+   SNP1  SNP2  SNP3  SNP4  SNP5  ...  SNP47  SNP48  SNP49  SNP50  Disease
+0     1     0     1     1     1  ...      1      1      0      2        0
+1     2     0     2     1     1  ...      1      0      1      0        0
+2     2     0     0     1     0  ...      1      0      0      0        0
+3     1     0     0     2     0  ...      0      1      1      1        1
+4     1     2     2     1     2  ...      1      1      0      0        1
+
+[5 rows x 51 columns]
+
+======================================================================
+📊 LABEL DISTRIBUTION - MODEL8
+======================================================================
+
+📈 Disease Label Counts:
+   Healthy (0): 2,000 (50.00%)
+   Diseased (1): 2,000 (50.00%)
+   ✅ Well-balanced dataset (ratio: 1.000)
+
+======================================================================
+🧬 SNP VALUE DISTRIBUTION - MODEL8
+======================================================================
+
+📊 Genotype Frequencies Across All SNPs:
+   0 (AA (homozygous normal)): 72,077 (36.04%)
+   1 (Aa (heterozygous)): 96,034 (48.02%)
+   2 (aa (homozygous mutant)): 31,889 (15.94%)
+
+======================================================================
+🧪 MINOR ALLELE FREQUENCY (MAF) - MODEL8
+======================================================================
+
+📊 MAF Statistics:
+   Mean MAF: 0.3995
+   Median MAF: 0.3990
+   Std Dev: 0.0050
+   Min MAF: 0.3892
+   Max MAF: 0.4105
+
+🎯 Expected MAF: 0.4
+   Observed vs Expected: 0.3995 vs 0.4
+
+======================================================================
+🔗 CORRELATION ANALYSIS - MODEL8
+======================================================================
+
+📊 SNP-SNP Correlation Statistics:
+   Mean correlation: -0.0001
+   Median correlation: -0.0000
+   Std Dev: 0.0160
+   Max correlation: 0.0449
+   Min correlation: -0.0489
+
+✅ No high correlations found (all |r| <= 0.5)
+
+======================================================================
+🎯 SNP-DISEASE ASSOCIATION - MODEL8
+======================================================================
+
+📊 SNP-Disease Correlation Statistics:
+   Mean |correlation|: 0.0271
+   Max correlation: 0.4624
+   Min correlation: -0.0357
+
+🔝 Top 10 SNPs Most Correlated with Disease:
+    1. SNP2: 0.4624
+    2. SNP1: 0.4491
+    3. SNP26: 0.0286
+    4. SNP10: 0.0285
+    5. SNP45: 0.0253
+    6. SNP43: 0.0154
+    7. SNP23: 0.0130
+    8. SNP39: 0.0120
+    9. SNP48: 0.0090
+   10. SNP28: 0.0089
+
+💡 Interpretation:
+   ✅ MARGINAL EFFECTS DETECTED
+      Max |correlation| = 0.4624 > 0.3
+      Individual SNPs show association with disease
+
+🎯 Expected Marginal Effects: No
+   Observed matches expected: False
+
+======================================================================
+🔬 DIMENSIONALITY REDUCTION - MODEL8
+======================================================================
+
+📊 Performing PCA...
+   PC1 explains: 2.46% variance
+   PC2 explains: 2.43% variance
+   Total: 4.89%
+
+📊 Performing t-SNE...
+✅ Dimensionality reduction complete
+
+======================================================================
+📋 SUMMARY STATISTICS - MODEL8
+======================================================================
+
+📊 Dataset Summary:
+   Model: model8
+   Type: Nested
+   Samples: 4000
+   SNPs: 50
+   Missing_Values: 0
+   Label_Balance_%: 50.0000
+   Mean_MAF: 0.3995
+   Expected_MAF: 0.4000
+   Mean_SNP_SNP_Corr: -0.0001
+   Mean_SNP_Disease_Corr: 0.0271
+   Top_SNP: SNP2
+   Top_SNP_Corr: 0.4624
+   Marginal_Effects: Yes
+   Expected_Marginal: No
+   Heritability: 0.1500
+   PCA_Variance_%: 4.8869
+
+💾 Summary saved to: results/eda/EDA_summary_model8.csv
+
+✅ Analysis complete for model8
+
+======================================================================
+🔬 CROSS-MODEL COMPARISON
+======================================================================
+
+💾 Combined summary saved to: results/eda/EDA_summary_ALL_MODELS.csv
+
+📊 Model Comparison Table:
+ Model           Type  Samples  SNPs  Mean_MAF  Mean_SNP_Disease_Corr Marginal_Effects
+model1       Additive     4000    50  0.200148               0.019028               No
+model2 Multiplicative     4000    50  0.198785               0.019789               No
+model3  Heterogeneous     4000    50  0.400770               0.030072              Yes
+model4      Threshold     4000    50  0.398960               0.023310               No
+model5 Pure Epistasis     4000    50  0.200317               0.020705               No
+model6       XOR-like     4000    50  0.201340               0.019887               No
+model7        Complex     4000    50  0.399555               0.033469              Yes
+model8         Nested     4000    50  0.399530               0.027124              Yes
+✅ Comparison plots saved
+
+======================================================================
+📝 GENERATING FINAL REPORT
+======================================================================
+
+======================================================================
+🧬 COMPREHENSIVE EDA REPORT - SNP EPISTASIS DATASETS
+======================================================================
+
+📊 OVERVIEW
+----------------------------------------------------------------------
+Total Models Analyzed: 8
+Total Samples: 32,000
+SNP Range: 50 to 50
+
+🎯 MARGINAL EFFECTS ANALYSIS
+----------------------------------------------------------------------
+Models WITH Marginal Effects (3):
+  ✅ model3 (Heterogeneous)
+     Max SNP-Disease Corr: 0.4605
+     Top SNP: SNP1
+  ✅ model7 (Complex)
+     Max SNP-Disease Corr: 0.4705
+     Top SNP: SNP1
+  ✅ model8 (Nested)
+     Max SNP-Disease Corr: 0.4624
+     Top SNP: SNP2
+
+Models WITHOUT Marginal Effects - Pure Epistasis (5):
+  ✅ model1 (Additive)
+     Max SNP-Disease Corr: 0.1831 (low → pure interaction)
+  ✅ model2 (Multiplicative)
+     Max SNP-Disease Corr: 0.1821 (low → pure interaction)
+  ✅ model4 (Threshold)
+     Max SNP-Disease Corr: 0.2383 (low → pure interaction)
+  ✅ model5 (Pure Epistasis)
+     Max SNP-Disease Corr: 0.2109 (low → pure interaction)
+  ✅ model6 (XOR-like)
+     Max SNP-Disease Corr: 0.1895 (low → pure interaction)
+
+🧪 MINOR ALLELE FREQUENCY (MAF) ANALYSIS
+----------------------------------------------------------------------
+Models with MAF ≈ 0.2 (4):
+  • model1: Observed MAF = 0.2001
+  • model2: Observed MAF = 0.1988
+  • model5: Observed MAF = 0.2003
+  • model6: Observed MAF = 0.2013
+
+Models with MAF ≈ 0.4 (4):
+  • model3: Observed MAF = 0.4008
+  • model4: Observed MAF = 0.3990
+  • model7: Observed MAF = 0.3996
+  • model8: Observed MAF = 0.3995
+
+✅ DATA QUALITY ASSESSMENT
+----------------------------------------------------------------------
+Missing Values: 0 (across all 8 models)
+Label Balance: 8/8 models perfectly balanced
+SNP Encoding: All models use valid (0, 1, 2) encoding ✅
+
+💡 KEY FINDINGS
+----------------------------------------------------------------------
+1. Marginal vs Pure Epistasis:
+   • 3 models show clear marginal effects
+   • 5 models demonstrate pure epistasis
+   • Clear distinction validates simulation design ✅
+
+2. Minor Allele Frequency:
+   • MAF 0.2 models: Observed = 0.2001 ✅
+   • MAF 0.4 models: Observed = 0.3997 ✅
+   • MAF values match simulation parameters
+
+3. Data Quality:
+   • Zero missing values across all datasets ✅
+   • Perfect class balance maintained ✅
+   • Valid genotype encoding throughout ✅
+
+4. SNP Correlations:
+   • Mean SNP-SNP correlation: -0.0001
+   • Low correlations indicate independent SNPs ✅
+
+======================================================================
+📄 END OF REPORT
+======================================================================
+
+💾 Final report saved to: results/eda/EDA_FINAL_REPORT.txt
+
+======================================================================
+✅ COMPREHENSIVE EDA COMPLETE!
+📁 Results saved to: results/eda
+======================================================================
