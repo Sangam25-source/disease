@@ -1,0 +1,2 @@
+Model,Type,Samples,SNPs,Missing_Values,Label_Balance_%,Mean_MAF,Expected_MAF,Mean_SNP_SNP_Corr,Mean_SNP_Disease_Corr,Top_SNP,Top_SNP_Corr,Marginal_Effects,Expected_Marginal,Heritability,PCA_Variance_%
+model2,Multiplicative,4000,50,0,50.0,0.198785,0.2,-0.0004359743929699354,0.01978904717530397,SNP1,0.18210347040515035,No,Yes,0.1,4.835406735757374

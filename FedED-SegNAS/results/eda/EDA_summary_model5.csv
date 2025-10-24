@@ -1,0 +1,2 @@
+Model,Type,Samples,SNPs,Missing_Values,Label_Balance_%,Mean_MAF,Expected_MAF,Mean_SNP_SNP_Corr,Mean_SNP_Disease_Corr,Top_SNP,Top_SNP_Corr,Marginal_Effects,Expected_Marginal,Heritability,PCA_Variance_%
+model5,Pure Epistasis,4000,50,0,50.0,0.20031749999999995,0.2,-0.0007341108003920994,0.02070475716180844,SNP2,0.2109180501665645,No,No,0.1,4.873569870149022

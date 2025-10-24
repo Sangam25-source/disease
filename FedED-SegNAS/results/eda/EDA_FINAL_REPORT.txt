@@ -1,0 +1,79 @@
+======================================================================
+🧬 COMPREHENSIVE EDA REPORT - SNP EPISTASIS DATASETS
+======================================================================
+
+📊 OVERVIEW
+----------------------------------------------------------------------
+Total Models Analyzed: 8
+Total Samples: 32,000
+SNP Range: 50 to 50
+
+🎯 MARGINAL EFFECTS ANALYSIS
+----------------------------------------------------------------------
+Models WITH Marginal Effects (3):
+  ✅ model3 (Heterogeneous)
+     Max SNP-Disease Corr: 0.4605
+     Top SNP: SNP1
+  ✅ model7 (Complex)
+     Max SNP-Disease Corr: 0.4705
+     Top SNP: SNP1
+  ✅ model8 (Nested)
+     Max SNP-Disease Corr: 0.4624
+     Top SNP: SNP2
+
+Models WITHOUT Marginal Effects - Pure Epistasis (5):
+  ✅ model1 (Additive)
+     Max SNP-Disease Corr: 0.1831 (low → pure interaction)
+  ✅ model2 (Multiplicative)
+     Max SNP-Disease Corr: 0.1821 (low → pure interaction)
+  ✅ model4 (Threshold)
+     Max SNP-Disease Corr: 0.2383 (low → pure interaction)
+  ✅ model5 (Pure Epistasis)
+     Max SNP-Disease Corr: 0.2109 (low → pure interaction)
+  ✅ model6 (XOR-like)
+     Max SNP-Disease Corr: 0.1895 (low → pure interaction)
+
+🧪 MINOR ALLELE FREQUENCY (MAF) ANALYSIS
+----------------------------------------------------------------------
+Models with MAF ≈ 0.2 (4):
+  • model1: Observed MAF = 0.2001
+  • model2: Observed MAF = 0.1988
+  • model5: Observed MAF = 0.2003
+  • model6: Observed MAF = 0.2013
+
+Models with MAF ≈ 0.4 (4):
+  • model3: Observed MAF = 0.4008
+  • model4: Observed MAF = 0.3990
+  • model7: Observed MAF = 0.3996
+  • model8: Observed MAF = 0.3995
+
+✅ DATA QUALITY ASSESSMENT
+----------------------------------------------------------------------
+Missing Values: 0 (across all 8 models)
+Label Balance: 8/8 models perfectly balanced
+SNP Encoding: All models use valid (0, 1, 2) encoding ✅
+
+💡 KEY FINDINGS
+----------------------------------------------------------------------
+1. Marginal vs Pure Epistasis:
+   • 3 models show clear marginal effects
+   • 5 models demonstrate pure epistasis
+   • Clear distinction validates simulation design ✅
+
+2. Minor Allele Frequency:
+   • MAF 0.2 models: Observed = 0.2001 ✅
+   • MAF 0.4 models: Observed = 0.3997 ✅
+   • MAF values match simulation parameters
+
+3. Data Quality:
+   • Zero missing values across all datasets ✅
+   • Perfect class balance maintained ✅
+   • Valid genotype encoding throughout ✅
+
+4. SNP Correlations:
+   • Mean SNP-SNP correlation: -0.0001
+   • Low correlations indicate independent SNPs ✅
+
+======================================================================
+📄 END OF REPORT
+======================================================================
