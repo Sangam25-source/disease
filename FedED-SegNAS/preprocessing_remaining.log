@@ -1,0 +1,61 @@
+======================================================================
+Data Preprocessing for Remaining Models
+======================================================================
+
+Configuration:
+  Models to process: model2, model3, model6, model7, model8
+  Total datasets found: 120
+  Federated clients: 50
+  Test split: 15.0%
+  Validation split: 15.0%
+======================================================================
+
+model2: 24 datasets
+
+model3: 24 datasets
+
+model6: 24 datasets
+
+model7: 24 datasets
+
+model8: 24 datasets
+
+======================================================================
+Processing datasets...
+======================================================================
+Preprocessing:   0%|          | 0/120 [00:00<?, ?it/s]Preprocessing:   1%|          | 1/120 [00:00<01:09,  1.70it/s]Preprocessing:   2%|▏         | 2/120 [00:01<00:57,  2.04it/s]Preprocessing:   2%|▎         | 3/120 [00:01<01:13,  1.59it/s]Preprocessing:   3%|▎         | 4/120 [00:02<01:21,  1.43it/s]Preprocessing:   4%|▍         | 5/120 [00:07<03:56,  2.05s/it]Preprocessing:   5%|▌         | 6/120 [00:11<05:25,  2.85s/it]Preprocessing:   8%|▊         | 9/120 [00:11<02:12,  1.20s/it]Preprocessing:   9%|▉         | 11/120 [00:13<01:57,  1.07s/it]Preprocessing:  10%|█         | 12/120 [00:14<02:08,  1.19s/it]Preprocessing:  11%|█         | 13/120 [00:15<01:48,  1.01s/it]Preprocessing:  12%|█▏        | 14/120 [00:15<01:31,  1.16it/s]Preprocessing:  12%|█▎        | 15/120 [00:16<01:39,  1.06it/s]Preprocessing:  13%|█▎        | 16/120 [00:18<01:51,  1.08s/it]Preprocessing:  14%|█▍        | 17/120 [00:22<03:27,  2.02s/it]Preprocessing:  15%|█▌        | 18/120 [00:27<04:36,  2.71s/it]Preprocessing:  18%|█▊        | 21/120 [00:27<02:04,  1.26s/it]Preprocessing:  19%|█▉        | 23/120 [00:29<01:49,  1.12s/it]Preprocessing:  20%|██        | 24/120 [00:30<01:57,  1.23s/it]Preprocessing:  21%|██        | 25/120 [00:31<01:39,  1.04s/it]Preprocessing:  22%|██▏       | 26/120 [00:31<01:23,  1.13it/s]Preprocessing:  22%|██▎       | 27/120 [00:32<01:20,  1.15it/s]Preprocessing:  23%|██▎       | 28/120 [00:33<01:17,  1.18it/s]Preprocessing:  24%|██▍       | 29/120 [00:37<02:45,  1.82s/it]Preprocessing:  25%|██▌       | 30/120 [00:42<03:48,  2.54s/it]Preprocessing:  28%|██▊       | 33/120 [00:42<01:42,  1.18s/it]Preprocessing:  29%|██▉       | 35/120 [00:43<01:30,  1.07s/it]Preprocessing:  30%|███       | 36/120 [00:45<01:38,  1.18s/it]Preprocessing:  31%|███       | 37/120 [00:45<01:23,  1.00s/it]Preprocessing:  32%|███▏      | 38/120 [00:46<01:10,  1.17it/s]Preprocessing:  32%|███▎      | 39/120 [00:47<01:08,  1.18it/s]Preprocessing:  33%|███▎      | 40/120 [00:47<01:06,  1.20it/s]Preprocessing:  34%|███▍      | 41/120 [00:52<02:23,  1.82s/it]Preprocessing:  35%|███▌      | 42/120 [00:58<04:07,  3.18s/it]Preprocessing:  37%|███▋      | 44/120 [00:59<02:16,  1.80s/it]Preprocessing:  38%|███▊      | 45/120 [00:59<01:45,  1.41s/it]Preprocessing:  38%|███▊      | 46/120 [00:59<01:20,  1.08s/it]Preprocessing:  39%|███▉      | 47/120 [01:01<01:42,  1.40s/it]Preprocessing:  40%|████      | 48/120 [01:03<01:45,  1.47s/it]Preprocessing:  41%|████      | 49/120 [01:03<01:22,  1.16s/it]Preprocessing:  42%|████▏     | 50/120 [01:04<01:06,  1.06it/s]Preprocessing:  42%|████▎     | 51/120 [01:04<01:02,  1.11it/s]Preprocessing:  43%|████▎     | 52/120 [01:05<00:59,  1.15it/s]Preprocessing:  44%|████▍     | 53/120 [01:10<02:09,  1.94s/it]Preprocessing:  45%|████▌     | 54/120 [01:14<02:57,  2.68s/it]Preprocessing:  48%|████▊     | 57/120 [01:14<01:16,  1.22s/it]Preprocessing:  48%|████▊     | 58/120 [01:15<01:00,  1.02it/s]Preprocessing:  49%|████▉     | 59/120 [01:16<01:08,  1.13s/it]Preprocessing:  50%|█████     | 60/120 [01:18<01:15,  1.26s/it]Preprocessing:  51%|█████     | 61/120 [01:18<01:00,  1.03s/it]Preprocessing:  52%|█████▏    | 62/120 [01:19<00:50,  1.16it/s]Preprocessing:  52%|█████▎    | 63/120 [01:19<00:48,  1.17it/s]Preprocessing:  53%|█████▎    | 64/120 [01:20<00:47,  1.19it/s]Preprocessing:  54%|█████▍    | 65/120 [01:25<01:51,  2.03s/it]Preprocessing:  55%|█████▌    | 66/120 [01:30<02:28,  2.75s/it]Preprocessing:  57%|█████▊    | 69/120 [01:30<01:04,  1.26s/it]Preprocessing:  59%|█████▉    | 71/120 [01:32<00:55,  1.12s/it]Preprocessing:  60%|██████    | 72/120 [01:33<00:58,  1.23s/it]Preprocessing:  61%|██████    | 73/120 [01:34<00:48,  1.02s/it]Preprocessing:  62%|██████▏   | 74/120 [01:34<00:39,  1.18it/s]Preprocessing:  62%|██████▎   | 75/120 [01:34<00:35,  1.27it/s]Preprocessing:  63%|██████▎   | 76/120 [01:35<00:32,  1.35it/s]Preprocessing:  64%|██████▍   | 77/120 [01:39<01:05,  1.53s/it]Preprocessing:  65%|██████▌   | 78/120 [01:42<01:27,  2.08s/it]Preprocessing:  68%|██████▊   | 81/120 [01:42<00:37,  1.03it/s]Preprocessing:  69%|██████▉   | 83/120 [01:44<00:31,  1.16it/s]Preprocessing:  70%|███████   | 84/120 [01:45<00:33,  1.07it/s]Preprocessing:  71%|███████   | 85/120 [01:45<00:28,  1.25it/s]Preprocessing:  72%|███████▏  | 86/120 [01:45<00:23,  1.47it/s]Preprocessing:  72%|███████▎  | 87/120 [01:46<00:21,  1.50it/s]Preprocessing:  73%|███████▎  | 88/120 [01:47<00:20,  1.53it/s]Preprocessing:  74%|███████▍  | 89/120 [01:51<00:47,  1.52s/it]Preprocessing:  75%|███████▌  | 90/120 [01:55<01:08,  2.28s/it]Preprocessing:  78%|███████▊  | 93/120 [01:55<00:28,  1.06s/it]Preprocessing:  79%|███████▉  | 95/120 [01:56<00:23,  1.07it/s]Preprocessing:  80%|████████  | 96/120 [01:58<00:24,  1.02s/it]Preprocessing:  81%|████████  | 97/120 [01:58<00:19,  1.16it/s]Preprocessing:  82%|████████▏ | 98/120 [01:58<00:16,  1.37it/s]Preprocessing:  82%|████████▎ | 99/120 [01:59<00:14,  1.42it/s]Preprocessing:  83%|████████▎ | 100/120 [02:00<00:13,  1.46it/s]Preprocessing:  84%|████████▍ | 101/120 [02:03<00:30,  1.59s/it]Preprocessing:  85%|████████▌ | 102/120 [02:08<00:44,  2.47s/it]Preprocessing:  87%|████████▋ | 104/120 [02:08<00:22,  1.40s/it]Preprocessing:  88%|████████▊ | 105/120 [02:08<00:16,  1.09s/it]Preprocessing:  88%|████████▊ | 106/120 [02:09<00:11,  1.19it/s]Preprocessing:  89%|████████▉ | 107/120 [02:11<00:16,  1.28s/it]Preprocessing:  90%|█████████ | 108/120 [02:13<00:18,  1.56s/it]Preprocessing:  91%|█████████ | 109/120 [02:14<00:13,  1.26s/it]Preprocessing:  92%|█████████▏| 110/120 [02:14<00:10,  1.03s/it]Preprocessing:  92%|█████████▎| 111/120 [02:15<00:08,  1.09it/s]Preprocessing:  93%|█████████▎| 112/120 [02:16<00:06,  1.18it/s]Preprocessing:  94%|█████████▍| 113/120 [02:19<00:11,  1.71s/it]Preprocessing:  95%|█████████▌| 114/120 [02:23<00:13,  2.25s/it]Preprocessing:  98%|█████████▊| 117/120 [02:23<00:03,  1.02s/it]Preprocessing:  99%|█████████▉| 119/120 [02:24<00:00,  1.11it/s]Preprocessing: 100%|██████████| 120/120 [02:26<00:00,  1.02it/s]Preprocessing: 100%|██████████| 120/120 [02:26<00:00,  1.22s/it]
+
+======================================================================
+Preprocessing Complete!
+======================================================================
+
+model2:
+  ✅ Successfully processed: 24/24
+
+model3:
+  ✅ Successfully processed: 24/24
+
+model6:
+  ✅ Successfully processed: 24/24
+
+model7:
+  ✅ Successfully processed: 24/24
+
+model8:
+  ✅ Successfully processed: 24/24
+
+Overall:
+  Total processed: 120/120 datasets
+  Failed: 0
+
+Total samples across all datasets:
+  Training: 336,000
+  Validation: 72,000
+  Test: 72,000
+  Total: 480,000
+
+Processed data saved in: data/processed/
+======================================================================
+
+✅ Preprocessing completed successfully!
+📁 Preprocessed data saved in: data/processed/
