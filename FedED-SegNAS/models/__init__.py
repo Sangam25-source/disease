@@ -22,19 +22,18 @@ Note: Privacy module removed as per project requirements.
 __version__ = "0.1.0"
 __author__ = "FedED-SegNAS Team"
 
-# Import main components (will be available after Phase 2 implementation)
+# Import main components (Phase 2 complete!)
 try:
     from .fuzzy_cnn import (
         FuzzificationLayer,
         FuzzyConvLayer,
-        FuzzyPoolingLayer,
         DefuzzificationLayer,
         FixedFuzzyCNN,
         build_fuzzy_cnn
     )
+    _FUZZY_CNN_AVAILABLE = True
 except ImportError:
-    # Modules not yet implemented
-    pass
+    _FUZZY_CNN_AVAILABLE = False
 
 try:
     from .federated_learning import (
