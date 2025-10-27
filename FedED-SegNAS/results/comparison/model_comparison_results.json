@@ -1,0 +1,26 @@
+[
+  {
+    "model_name": "model1",
+    "order": 2,
+    "num_snps": 50,
+    "dataset_id": 0,
+    "epochs": 10,
+    "test_loss": 0.6932258009910583,
+    "test_accuracy": 0.5,
+    "final_train_accuracy": 0.4903571307659149,
+    "final_val_accuracy": 0.5,
+    "training_time": 12.374852418899536
+  },
+  {
+    "model_name": "model5",
+    "order": 2,
+    "num_snps": 50,
+    "dataset_id": 0,
+    "epochs": 10,
+    "test_loss": 0.6931536793708801,
+    "test_accuracy": 0.5,
+    "final_train_accuracy": 0.4935714304447174,
+    "final_val_accuracy": 0.5,
+    "training_time": 12.382471799850464
+  }
+]
