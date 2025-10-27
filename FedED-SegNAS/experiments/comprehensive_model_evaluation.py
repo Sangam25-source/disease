@@ -40,7 +40,12 @@ Date: October 2024
 """
 
 import sys
-sys.path.insert(0, '/app/FedED-SegNAS')
+import os
+
+# Add parent directory to path (works from any location)
+script_dir = os.path.dirname(os.path.abspath(__file__))
+parent_dir = os.path.dirname(script_dir)
+sys.path.insert(0, parent_dir)
 
 import numpy as np
 import os

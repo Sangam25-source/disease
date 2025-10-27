@@ -1,0 +1,58 @@
+
+======================================================================
+COMPREHENSIVE FUZZY CNN TESTING: ALL 8 MODELS
+======================================================================
+Epochs: 20
+SNP Size: 50
+Quick Mode: True
+======================================================================
+
+
+======================================================================
+Testing MODEL1
+======================================================================
+Found 4 datasets with 50 SNPs
+
+  Training on: order2/snps50/dataset_0
+  File: data/processed/model1/order2/snps50/dataset_0.npz
+  ✅ Test Acc: 0.5000 | Time: 24.3s
+
+======================================================================
+Testing MODEL2
+======================================================================
+Found 4 datasets with 50 SNPs
+
+  Training on: order2/snps50/dataset_0
+  File: data/processed/model2/order2/snps50/dataset_0.npz
+  ✅ Test Acc: 0.5000 | Time: 24.1s
+
+======================================================================
+Testing MODEL3
+======================================================================
+Found 4 datasets with 50 SNPs
+
+  Training on: order2/snps50/dataset_0
+  File: data/processed/model3/order2/snps50/dataset_0.npz
+  ✅ Test Acc: 0.5000 | Time: 24.0s
+
+======================================================================
+Testing MODEL4
+======================================================================
+⚠️ No datasets with 50 SNPs found for model4
+
+======================================================================
+Testing MODEL5
+======================================================================
+Found 4 datasets with 50 SNPs
+
+  Training on: order2/snps50/dataset_0
+  File: data/processed/model5/order2/snps50/dataset_0.npz
+  ✅ Test Acc: 0.5000 | Time: 24.1s
+
+======================================================================
+Testing MODEL6
+======================================================================
+Found 4 datasets with 50 SNPs
+
+  Training on: order2/snps50/dataset_0
+  File: data/processed/model6/order2/snps50/dataset_0.npz
