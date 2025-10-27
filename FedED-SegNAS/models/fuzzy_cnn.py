@@ -391,11 +391,7 @@ def build_fuzzy_cnn(num_snps, num_classes=2, learning_rate=0.001):
     model.compile(
         optimizer=tf.keras.optimizers.Adam(learning_rate=learning_rate),
         loss='sparse_categorical_crossentropy',
-        metrics=[
-            'accuracy',
-            tf.keras.metrics.Precision(name='precision'),
-            tf.keras.metrics.Recall(name='recall')
-        ]
+        metrics=['accuracy']
     )
     
     return model
