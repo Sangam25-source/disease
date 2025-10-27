@@ -1,0 +1,60 @@
+================================================================================
+                    🚀 QUICK START GUIDE
+        Comprehensive Model Evaluation - All 8 Models
+================================================================================
+
+📍 STEP 1: Navigate to Project Directory
+   cd /app/FedED-SegNAS
+
+📍 STEP 2: Run the Evaluation Script
+   python3 experiments/comprehensive_model_evaluation.py
+
+   That's it! The script will automatically:
+   ✅ Test all 8 models (model1-8)
+   ✅ Train for 30 epochs
+   ✅ Test on 50 SNPs
+   ✅ Generate comprehensive results
+
+⏱️  EXPECTED DURATION: 25-40 minutes
+
+📁 RESULTS LOCATION: results/comprehensive_evaluation/
+
+================================================================================
+                    WHAT YOU'LL GET
+================================================================================
+
+1. CSV File with detailed metrics
+2. JSON file with full results  
+3. Summary report (TXT)
+4. Visualization charts (PNG)
+
+================================================================================
+                    WHAT TO SHARE BACK
+================================================================================
+
+After completion, share these 3 items:
+
+1. Terminal output (final summary section)
+2. results/comprehensive_evaluation/results_*.csv
+3. results/comprehensive_evaluation/summary_*.txt
+
+================================================================================
+                    ALTERNATIVE COMMANDS
+================================================================================
+
+# Different number of epochs
+python3 experiments/comprehensive_model_evaluation.py --epochs 50
+
+# Different SNP size
+python3 experiments/comprehensive_model_evaluation.py --snps 100 --epochs 30
+
+# Quick test (1 dataset per model)
+python3 experiments/comprehensive_model_evaluation.py --quick --epochs 10
+
+================================================================================
+
+📖 For detailed instructions, see: HOW_TO_RUN_COMPREHENSIVE_EVALUATION.md
+
+🎯 Ready? Just run: python3 experiments/comprehensive_model_evaluation.py
+
+================================================================================
