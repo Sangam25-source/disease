@@ -39,14 +39,13 @@ try:
     from .federated_learning import (
         SimpleFederatedTrainer
     )
+    _FEDERATED_LEARNING_AVAILABLE = True
 except ImportError:
-    # Module not yet implemented
-    pass
+    _FEDERATED_LEARNING_AVAILABLE = False
 
 __all__ = [
     'FuzzificationLayer',
     'FuzzyConvLayer',
-    'FuzzyPoolingLayer',
     'DefuzzificationLayer',
     'FixedFuzzyCNN',
     'build_fuzzy_cnn',
