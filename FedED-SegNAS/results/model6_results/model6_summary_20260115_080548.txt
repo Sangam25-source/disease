@@ -1,0 +1,48 @@
+================================================================================
+MODEL6 EVALUATION RESULTS SUMMARY
+================================================================================
+Evaluation Date: 2026-01-15 08:05:48
+Model Type: Pure Epistasis
+
+Total datasets tested: 24
+Average accuracy: 0.5720 (57.20%)
+Best accuracy: 0.6500 (65.00%)
+Worst accuracy: 0.4833 (48.33%)
+
+Order 2 average: 0.6250 (62.50%)
+Order 3 average: 0.5190 (51.90%)
+
+----------------------------------------------------------------------
+Per-dataset results:
+Dataset                                       Accuracy       
+----------------------------------------------------------------------
+order2/snps50/dataset_0                       0.6450 (64.50%) GOOD
+order2/snps50/dataset_1                       0.6433 (64.33%) GOOD
+order2/snps100/dataset_0                      0.6200 (62.00%) GOOD
+order2/snps100/dataset_1                      0.6217 (62.17%) GOOD
+order2/snps500/dataset_0                      0.6233 (62.33%) GOOD
+order2/snps500/dataset_1                      0.6117 (61.17%) GOOD
+order2/snps1000/dataset_0                     0.6200 (62.00%) GOOD
+order2/snps1000/dataset_1                     0.6500 (65.00%) GOOD
+order2/snps2000/dataset_0                     0.6333 (63.33%) GOOD
+order2/snps2000/dataset_1                     0.6167 (61.67%) GOOD
+order2/snps5000/dataset_0                     0.6083 (60.83%) GOOD
+order2/snps5000/dataset_1                     0.6067 (60.67%) GOOD
+order3/snps50/dataset_0                       0.5183 (51.83%) 
+order3/snps50/dataset_1                       0.5383 (53.83%) 
+order3/snps100/dataset_0                      0.5167 (51.67%) 
+order3/snps100/dataset_1                      0.5350 (53.50%) 
+order3/snps500/dataset_0                      0.5333 (53.33%) 
+order3/snps500/dataset_1                      0.5167 (51.67%) 
+order3/snps1000/dataset_0                     0.5233 (52.33%) 
+order3/snps1000/dataset_1                     0.5467 (54.67%) 
+order3/snps2000/dataset_0                     0.4883 (48.83%) 
+order3/snps2000/dataset_1                     0.5000 (50.00%) 
+order3/snps5000/dataset_0                     0.5283 (52.83%) 
+order3/snps5000/dataset_1                     0.4833 (48.33%) 
+
+----------------------------------------------------------------------
+Note: Model6 is PURE EPISTASIS - individual SNPs have
+no predictive power. 60-65% accuracy is the expected
+ceiling for this type of data.
+----------------------------------------------------------------------

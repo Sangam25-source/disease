@@ -1,0 +1,49 @@
+================================================================================
+MODEL2 EVALUATION RESULTS SUMMARY
+================================================================================
+Evaluation Date: 2026-01-15 10:27:27
+Model Type: Weak Marginal
+Best Approach: RandomForest (n=500, depth=8)
+
+Total datasets tested: 24
+Average accuracy: 0.5562 (55.62%)
+Best accuracy: 0.6283 (62.83%)
+Worst accuracy: 0.4950 (49.50%)
+
+Order 2 average: 0.5893 (58.93%)
+Order 3 average: 0.5231 (52.31%)
+
+----------------------------------------------------------------------
+Per-dataset results:
+Dataset                                       Accuracy       
+----------------------------------------------------------------------
+order2/snps50/dataset_0                       0.5917 (59.17%) 
+order2/snps50/dataset_1                       0.6133 (61.33%) GOOD
+order2/snps100/dataset_0                      0.6283 (62.83%) GOOD
+order2/snps100/dataset_1                      0.6000 (60.00%) GOOD
+order2/snps500/dataset_0                      0.5883 (58.83%) 
+order2/snps500/dataset_1                      0.5567 (55.67%) 
+order2/snps1000/dataset_0                     0.5650 (56.50%) 
+order2/snps1000/dataset_1                     0.6117 (61.17%) GOOD
+order2/snps2000/dataset_0                     0.5933 (59.33%) 
+order2/snps2000/dataset_1                     0.5833 (58.33%) 
+order2/snps5000/dataset_0                     0.5483 (54.83%) 
+order2/snps5000/dataset_1                     0.5917 (59.17%) 
+order3/snps50/dataset_0                       0.5150 (51.50%) 
+order3/snps50/dataset_1                       0.5317 (53.17%) 
+order3/snps100/dataset_0                      0.5333 (53.33%) 
+order3/snps100/dataset_1                      0.5683 (56.83%) 
+order3/snps500/dataset_0                      0.5200 (52.00%) 
+order3/snps500/dataset_1                      0.5267 (52.67%) 
+order3/snps1000/dataset_0                     0.5133 (51.33%) 
+order3/snps1000/dataset_1                     0.5050 (50.50%) 
+order3/snps2000/dataset_0                     0.4950 (49.50%) 
+order3/snps2000/dataset_1                     0.5467 (54.67%) 
+order3/snps5000/dataset_0                     0.5183 (51.83%) 
+order3/snps5000/dataset_1                     0.5033 (50.33%) 
+
+----------------------------------------------------------------------
+Note: Model2 is WEAK MARGINAL - individual SNPs have
+some predictive power but epistatic interactions dominate.
+60-65% accuracy is the expected ceiling.
+----------------------------------------------------------------------

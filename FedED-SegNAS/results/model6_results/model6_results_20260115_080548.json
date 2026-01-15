@@ -1,0 +1,194 @@
+[
+  {
+    "order": 2,
+    "snp_size": 50,
+    "dataset_id": 0,
+    "test_accuracy": 0.645,
+    "model_name": "model6",
+    "model_type": "Pure Epistasis"
+  },
+  {
+    "order": 2,
+    "snp_size": 50,
+    "dataset_id": 1,
+    "test_accuracy": 0.6433,
+    "model_name": "model6",
+    "model_type": "Pure Epistasis"
+  },
+  {
+    "order": 2,
+    "snp_size": 100,
+    "dataset_id": 0,
+    "test_accuracy": 0.62,
+    "model_name": "model6",
+    "model_type": "Pure Epistasis"
+  },
+  {
+    "order": 2,
+    "snp_size": 100,
+    "dataset_id": 1,
+    "test_accuracy": 0.6217,
+    "model_name": "model6",
+    "model_type": "Pure Epistasis"
+  },
+  {
+    "order": 2,
+    "snp_size": 500,
+    "dataset_id": 0,
+    "test_accuracy": 0.6233,
+    "model_name": "model6",
+    "model_type": "Pure Epistasis"
+  },
+  {
+    "order": 2,
+    "snp_size": 500,
+    "dataset_id": 1,
+    "test_accuracy": 0.6117,
+    "model_name": "model6",
+    "model_type": "Pure Epistasis"
+  },
+  {
+    "order": 2,
+    "snp_size": 1000,
+    "dataset_id": 0,
+    "test_accuracy": 0.62,
+    "model_name": "model6",
+    "model_type": "Pure Epistasis"
+  },
+  {
+    "order": 2,
+    "snp_size": 1000,
+    "dataset_id": 1,
+    "test_accuracy": 0.65,
+    "model_name": "model6",
+    "model_type": "Pure Epistasis"
+  },
+  {
+    "order": 2,
+    "snp_size": 2000,
+    "dataset_id": 0,
+    "test_accuracy": 0.6333,
+    "model_name": "model6",
+    "model_type": "Pure Epistasis"
+  },
+  {
+    "order": 2,
+    "snp_size": 2000,
+    "dataset_id": 1,
+    "test_accuracy": 0.6167,
+    "model_name": "model6",
+    "model_type": "Pure Epistasis"
+  },
+  {
+    "order": 2,
+    "snp_size": 5000,
+    "dataset_id": 0,
+    "test_accuracy": 0.6083,
+    "model_name": "model6",
+    "model_type": "Pure Epistasis"
+  },
+  {
+    "order": 2,
+    "snp_size": 5000,
+    "dataset_id": 1,
+    "test_accuracy": 0.6067,
+    "model_name": "model6",
+    "model_type": "Pure Epistasis"
+  },
+  {
+    "order": 3,
+    "snp_size": 50,
+    "dataset_id": 0,
+    "test_accuracy": 0.5183,
+    "model_name": "model6",
+    "model_type": "Pure Epistasis"
+  },
+  {
+    "order": 3,
+    "snp_size": 50,
+    "dataset_id": 1,
+    "test_accuracy": 0.5383,
+    "model_name": "model6",
+    "model_type": "Pure Epistasis"
+  },
+  {
+    "order": 3,
+    "snp_size": 100,
+    "dataset_id": 0,
+    "test_accuracy": 0.5167,
+    "model_name": "model6",
+    "model_type": "Pure Epistasis"
+  },
+  {
+    "order": 3,
+    "snp_size": 100,
+    "dataset_id": 1,
+    "test_accuracy": 0.535,
+    "model_name": "model6",
+    "model_type": "Pure Epistasis"
+  },
+  {
+    "order": 3,
+    "snp_size": 500,
+    "dataset_id": 0,
+    "test_accuracy": 0.5333,
+    "model_name": "model6",
+    "model_type": "Pure Epistasis"
+  },
+  {
+    "order": 3,
+    "snp_size": 500,
+    "dataset_id": 1,
+    "test_accuracy": 0.5167,
+    "model_name": "model6",
+    "model_type": "Pure Epistasis"
+  },
+  {
+    "order": 3,
+    "snp_size": 1000,
+    "dataset_id": 0,
+    "test_accuracy": 0.5233,
+    "model_name": "model6",
+    "model_type": "Pure Epistasis"
+  },
+  {
+    "order": 3,
+    "snp_size": 1000,
+    "dataset_id": 1,
+    "test_accuracy": 0.5467,
+    "model_name": "model6",
+    "model_type": "Pure Epistasis"
+  },
+  {
+    "order": 3,
+    "snp_size": 2000,
+    "dataset_id": 0,
+    "test_accuracy": 0.4883,
+    "model_name": "model6",
+    "model_type": "Pure Epistasis"
+  },
+  {
+    "order": 3,
+    "snp_size": 2000,
+    "dataset_id": 1,
+    "test_accuracy": 0.5,
+    "model_name": "model6",
+    "model_type": "Pure Epistasis"
+  },
+  {
+    "order": 3,
+    "snp_size": 5000,
+    "dataset_id": 0,
+    "test_accuracy": 0.5283,
+    "model_name": "model6",
+    "model_type": "Pure Epistasis"
+  },
+  {
+    "order": 3,
+    "snp_size": 5000,
+    "dataset_id": 1,
+    "test_accuracy": 0.4833,
+    "model_name": "model6",
+    "model_type": "Pure Epistasis"
+  }
+]
