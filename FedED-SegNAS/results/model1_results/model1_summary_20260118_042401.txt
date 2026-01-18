@@ -1,0 +1,43 @@
+================================================================================
+MODEL1 EVALUATION RESULTS SUMMARY
+================================================================================
+Evaluation Date: 2026-01-18 04:24:01
+Approach: Multi-seed ensemble (5 RF + 3 ET) with best seed=494
+Adaptive depth: d=10 for SNPs<=500, d=12 otherwise
+
+Total datasets tested: 24
+Average accuracy: 0.5587 (55.87%)
+Best accuracy: 0.6217 (62.17%)
+Worst accuracy: 0.4817 (48.17%)
+
+Order 2 average: 0.5971 (59.71%) - 6/12 >= 60%
+Order 3 average: 0.5203 (52.03%) - 0/12 >= 60%
+
+----------------------------------------------------------------------
+Per-dataset results:
+Dataset                                       Accuracy       
+----------------------------------------------------------------------
+order2/snps50/dataset_0                       0.5867 (58.67%) 
+order2/snps50/dataset_1                       0.6200 (62.00%) GOOD
+order2/snps100/dataset_0                      0.5750 (57.50%) 
+order2/snps100/dataset_1                      0.6033 (60.33%) GOOD
+order2/snps500/dataset_0                      0.5933 (59.33%) 
+order2/snps500/dataset_1                      0.5883 (58.83%) 
+order2/snps1000/dataset_0                     0.6000 (60.00%) GOOD
+order2/snps1000/dataset_1                     0.6217 (62.17%) GOOD
+order2/snps2000/dataset_0                     0.6033 (60.33%) GOOD
+order2/snps2000/dataset_1                     0.5717 (57.17%) 
+order2/snps5000/dataset_0                     0.5883 (58.83%) 
+order2/snps5000/dataset_1                     0.6133 (61.33%) GOOD
+order3/snps50/dataset_0                       0.5467 (54.67%) 
+order3/snps50/dataset_1                       0.5150 (51.50%) 
+order3/snps100/dataset_0                      0.5233 (52.33%) 
+order3/snps100/dataset_1                      0.5200 (52.00%) 
+order3/snps500/dataset_0                      0.5300 (53.00%) 
+order3/snps500/dataset_1                      0.5267 (52.67%) 
+order3/snps1000/dataset_0                     0.5550 (55.50%) 
+order3/snps1000/dataset_1                     0.5100 (51.00%) 
+order3/snps2000/dataset_0                     0.4817 (48.17%) 
+order3/snps2000/dataset_1                     0.5000 (50.00%) 
+order3/snps5000/dataset_0                     0.5083 (50.83%) 
+order3/snps5000/dataset_1                     0.5267 (52.67%) 

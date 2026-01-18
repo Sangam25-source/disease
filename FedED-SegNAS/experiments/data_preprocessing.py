@@ -16,8 +16,9 @@ from sklearn.model_selection import train_test_split
 from tqdm import tqdm
 import argparse
 
-# Add parent directory to path
-sys.path.insert(0, '/app/FedED-SegNAS')
+# Add parent directory to path (handle both Windows and Linux)
+script_dir = Path(__file__).parent.parent
+sys.path.insert(0, str(script_dir))
 from utils.data_loader import DataLoader
 
 
@@ -297,8 +298,9 @@ def main():
     
     args = parser.parse_args()
     
-    # Change to project root
-    os.chdir('/app/FedED-SegNAS')
+    # Change to project root (handle both Windows and Linux)
+    script_dir = Path(__file__).parent.parent
+    os.chdir(script_dir)
     
     # Initialize preprocessor
     preprocessor = DataPreprocessor(
