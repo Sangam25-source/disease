@@ -1,0 +1,76 @@
+{
+  "model_name": "model1",
+  "filepath": "data/processed/model1/order2/snps50/dataset_0.npz",
+  "num_snps": 50,
+  "num_clients": 50,
+  "num_rounds": 5,
+  "clients_per_round": 5,
+  "local_epochs": 2,
+  "use_nas": true,
+  "training_time_seconds": 55.834370613098145,
+  "training_time_minutes": 0.9305728435516357,
+  "history": {
+    "rounds": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "train_loss": [
+      0.6885949611663819,
+      0.70050607919693,
+      0.6863253951072693,
+      0.6844786047935486,
+      0.6961174249649048
+    ],
+    "train_accuracy": [
+      0.5464285671710968,
+      0.5,
+      0.5642857134342194,
+      0.5857142806053162,
+      0.4785714328289032
+    ],
+    "val_loss": [
+      0.6931937336921692,
+      0.6935949921607971,
+      0.6937065124511719,
+      0.6939003467559814,
+      0.6933979988098145
+    ],
+    "val_accuracy": [
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5
+    ],
+    "communication_overhead_mb": [
+      0.989288330078125,
+      0.989288330078125,
+      0.989288330078125,
+      0.989288330078125,
+      0.989288330078125
+    ],
+    "round_time_seconds": [
+      10.656834363937378,
+      10.892624855041504,
+      11.089103937149048,
+      11.439966917037964,
+      11.754204750061035
+    ],
+    "nas_searches": []
+  },
+  "test_loss": 0.6933980584144592,
+  "test_accuracy": 0.5,
+  "final_val_accuracy": 0.5,
+  "best_val_accuracy": 0.5,
+  "total_communication_mb": 4.946441650390625,
+  "avg_communication_per_round_mb": 0.989288330078125,
+  "convergence": "Needs More Rounds",
+  "status": "SUCCESS",
+  "timestamp": "2026-01-17T21:14:04.761722",
+  "nas_searches": [],
+  "num_nas_searches": 0,
+  "nas_frequency": 5
+}
