@@ -126,14 +126,14 @@ def generate_all_datasets(test_mode=False):
     # Updated heritability to 0.40 for all models (good balance: strong patterns, still realistic)
     # This provides strong enough patterns for ML while remaining within realistic range
     models = [
-        {'name': 'model1', 'heritability': 0.40, 'maf': 0.2, 'marginal': True, 'type': 'additive'},
-        {'name': 'model2', 'heritability': 0.40, 'maf': 0.2, 'marginal': True, 'type': 'multiplicative'},
-        {'name': 'model3', 'heritability': 0.40, 'maf': 0.4, 'marginal': True, 'type': 'heterogeneous'},
-        {'name': 'model4', 'heritability': 0.40, 'maf': 0.4, 'marginal': True, 'type': 'threshold'},
-        {'name': 'model5', 'heritability': 0.40, 'maf': 0.2, 'marginal': False, 'type': 'pure'},
-        {'name': 'model6', 'heritability': 0.40, 'maf': 0.2, 'marginal': False, 'type': 'xor'},
-        {'name': 'model7', 'heritability': 0.40, 'maf': 0.4, 'marginal': False, 'type': 'complex'},
-        {'name': 'model8', 'heritability': 0.40, 'maf': 0.4, 'marginal': False, 'type': 'nested'},
+        {'name': 'model1', 'heritability': 0.50, 'maf': 0.2, 'marginal': True, 'type': 'additive'},
+        {'name': 'model2', 'heritability': 0.50, 'maf': 0.2, 'marginal': True, 'type': 'multiplicative'},
+        {'name': 'model3', 'heritability': 0.50, 'maf': 0.4, 'marginal': True, 'type': 'heterogeneous'},
+        {'name': 'model4', 'heritability': 0.50, 'maf': 0.4, 'marginal': True, 'type': 'threshold'},
+        {'name': 'model5', 'heritability': 0.50, 'maf': 0.2, 'marginal': False, 'type': 'pure'},
+        {'name': 'model6', 'heritability': 0.50, 'maf': 0.2, 'marginal': False, 'type': 'xor'},
+        {'name': 'model7', 'heritability': 0.50, 'maf': 0.4, 'marginal': False, 'type': 'complex'},
+        {'name': 'model8', 'heritability': 0.50, 'maf': 0.4, 'marginal': False, 'type': 'nested'},
     ]
     
     snp_sizes = [50, 100, 500, 1000, 2000, 5000]
