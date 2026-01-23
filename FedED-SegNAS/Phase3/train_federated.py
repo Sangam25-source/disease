@@ -281,11 +281,11 @@ def main():
                        help='Disease model to train (model1-model8)')
     parser.add_argument('--snps', type=int, default=50,
                        help='SNP size (50, 100, 500, 1000, 2000, 5000)')
-    parser.add_argument('--rounds', type=int, default=50,
+    parser.add_argument('--rounds', type=int, default=100,  # Changed from 50 - Task 2
                        help='Number of communication rounds')
-    parser.add_argument('--clients-per-round', type=int, default=10,
+    parser.add_argument('--clients-per-round', type=int, default=15,  # Increased from 10 - Task 2
                        help='Number of clients to sample per round')
-    parser.add_argument('--local-epochs', type=int, default=5,
+    parser.add_argument('--local-epochs', type=int, default=10,  # Increased from 5 - Task 2
                        help='Number of local training epochs per client')
     parser.add_argument('--use-nas', action='store_true',
                        help='Enable Neural Architecture Search')
