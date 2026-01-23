@@ -101,8 +101,40 @@ class SimpleFederatedTrainer:
             'val_accuracy': [],
             'communication_overhead_mb': [],
             'round_time_seconds': [],
-            'nas_searches': []  # Track NAS searches
+            'learning_rate': [],  # Track learning rate changes
+            'nas_searches': [],  # Track NAS searches
+            'early_stopped': False,
+            'early_stop_round': None,
+            'best_val_accuracy': 0.0
         }
+    
+    def get_cosine_annealing_lr(self, current_round, total_rounds, initial_lr, min_lr):
+        """
+        Calculate learning rate using cosine annealing schedule.
+        
+        Parameters:
+        -----------
+        current_round : int
+            Current training round (0-indexed)
+        total_rounds : int
+            Total number of training rounds
+        initial_lr : float
+            Initial learning rate
+        min_lr : float
+            Minimum learning rate
+            
+        Returns:
+        --------
+        float : Learning rate for current round
+        """
+        import math
+        if total_rounds <= 1:
+            return initial_lr
+        
+        # Cosine annealing formula
+        cosine_factor = 0.5 * (1 + math.cos(math.pi * current_round / (total_rounds - 1)))
+        lr = min_lr + (initial_lr - min_lr) * cosine_factor
+        return lr
     
     def update_architecture(self, architecture):
         """
@@ -281,9 +313,10 @@ class SimpleFederatedTrainer:
         return overhead_mb
     
     def train(self, federated_data, num_rounds=50, clients_per_round=10,
-              local_epochs=5, nas_frequency=5, verbose=True):
+              local_epochs=5, nas_frequency=5, verbose=True, 
+              early_stopping=True, patience=20, min_lr=0.0001):
         """
-        Main federated training loop with optional NAS.
+        Main federated training loop with optional NAS, early stopping, and LR scheduling.
         
         Parameters:
         -----------
@@ -302,6 +335,12 @@ class SimpleFederatedTrainer:
             Run NAS every N rounds (if use_nas=True)
         verbose : bool, default=True
             Whether to print progress
+        early_stopping : bool, default=True
+            Enable early stopping based on validation accuracy
+        patience : int, default=20
+            Early stopping patience (rounds without improvement)
+        min_lr : float, default=0.0001
+            Minimum learning rate for cosine annealing
         
         Returns:
         --------
@@ -313,13 +352,15 @@ class SimpleFederatedTrainer:
         1. Initialize global model
         2. For each round:
            a. (Optional) Run NAS if enabled and it's time
-           b. Select random subset of clients
-           c. Send global model to selected clients
-           d. Clients train on local data (local_epochs)
-           e. Clients send updated weights to server
-           f. Server aggregates weights using FedAvg
-           g. Update global model
-           h. Evaluate on validation set
+           b. Update learning rate using cosine annealing
+           c. Select random subset of clients
+           d. Send global model to selected clients
+           e. Clients train on local data (local_epochs)
+           f. Clients send updated weights to server
+           g. Server aggregates weights using FedAvg
+           h. Update global model
+           i. Evaluate on validation set
+           j. Check early stopping condition
         3. Return training history
         """
         # Extract validation data
@@ -328,6 +369,11 @@ class SimpleFederatedTrainer:
         
         # Count available clients
         available_clients = sum(1 for k in federated_data.keys() if k.endswith('_X') and k.startswith('client_'))
+        
+        # Early stopping variables
+        best_val_accuracy = 0.0
+        patience_counter = 0
+        initial_lr = self.learning_rate
         
         if verbose:
             print("\n" + "="*80)
@@ -338,6 +384,8 @@ class SimpleFederatedTrainer:
             print(f"  >> Clients per round: {clients_per_round}")
             print(f"  >> Communication rounds: {num_rounds}")
             print(f"  >> Local epochs: {local_epochs}")
+            print(f"  >> Early stopping: {early_stopping} (patience={patience})")
+            print(f"  >> Learning rate: {initial_lr} -> {min_lr} (cosine annealing)")
             if self.use_nas:
                 print(f"  >> NAS enabled: every {nas_frequency} rounds")
                 print(f"  >> NAS particles: {self.pso_optimizer.num_particles}")
@@ -353,6 +401,20 @@ class SimpleFederatedTrainer:
                 print(f"\n{'='*80}")
                 print(f"Round {round_num + 1}/{num_rounds}")
                 print(f"{'='*80}")
+            
+            # Update learning rate using cosine annealing
+            current_lr = self.get_cosine_annealing_lr(
+                round_num, num_rounds, initial_lr, min_lr
+            )
+            
+            # Update optimizer learning rate
+            try:
+                self.global_model.optimizer.learning_rate.assign(current_lr)
+                if verbose and round_num % 10 == 0:  # Print every 10 rounds
+                    print(f">> Learning rate updated: {current_lr:.6f}")
+            except Exception as e:
+                if verbose:
+                    print(f">> Warning: Could not update learning rate: {e}")
             
             # Run NAS if enabled and it's time
             if self.use_nas and round_num > 0 and round_num % nas_frequency == 0:
@@ -468,13 +530,40 @@ class SimpleFederatedTrainer:
             self.history['val_accuracy'].append(float(val_accuracy))
             self.history['communication_overhead_mb'].append(float(comm_overhead))
             self.history['round_time_seconds'].append(float(round_time))
+            self.history['learning_rate'].append(float(current_lr))
+            
+            # Early stopping logic
+            if early_stopping:
+                if val_accuracy > best_val_accuracy:
+                    best_val_accuracy = val_accuracy
+                    patience_counter = 0
+                    self.history['best_val_accuracy'] = float(best_val_accuracy)
+                    if verbose:
+                        print(f"  >> ✅ New best validation accuracy: {best_val_accuracy:.4f}")
+                else:
+                    patience_counter += 1
+                    if verbose:
+                        print(f"  >> ⏳ No improvement ({patience_counter}/{patience})")
+                
+                # Check if we should stop early
+                if patience_counter >= patience and round_num >= 10:  # Minimum 10 rounds
+                    if verbose:
+                        print(f"\n🛑 Early stopping triggered at round {round_num + 1}")
+                        print(f"   Best validation accuracy: {best_val_accuracy:.4f}")
+                    
+                    self.history['early_stopped'] = True
+                    self.history['early_stop_round'] = round_num + 1
+                    break
             
             if verbose:
                 print(f"\n  >> Round {round_num + 1} Results:")
+                print(f"     Learning Rate:         {current_lr:.6f}")
                 print(f"     Avg Client Train Loss: {avg_train_loss:.4f}")
                 print(f"     Avg Client Train Acc:  {avg_train_acc:.4f}")
                 print(f"     Global Val Loss:       {val_loss:.4f}")
                 print(f"     Global Val Accuracy:   {val_accuracy:.4f} ({val_accuracy*100:.2f}%)")
+                if early_stopping:
+                    print(f"     Best Val Accuracy:     {best_val_accuracy:.4f}")
                 print(f"     Communication:         {comm_overhead:.2f} MB")
                 print(f"     Round Time:            {round_time:.2f}s")
             
@@ -482,13 +571,22 @@ class SimpleFederatedTrainer:
             if verbose and (round_num + 1) % 10 == 0:
                 print(f"\n  >> Milestone: {round_num + 1}/{num_rounds} rounds complete!")
         
+        # Update final best accuracy
+        if not early_stopping:
+            self.history['best_val_accuracy'] = max(self.history['val_accuracy'])
+        
         if verbose:
             print("\n" + "="*80)
             print("FEDERATED TRAINING COMPLETE")
             print("="*80)
             total_time = sum(self.history['round_time_seconds'])
+            final_accuracy = self.history['val_accuracy'][-1]
+            best_accuracy = self.history['best_val_accuracy']
             print(f"Total training time: {total_time/60:.2f} minutes")
-            print(f"Final validation accuracy: {self.history['val_accuracy'][-1]:.4f}")
+            print(f"Final validation accuracy: {final_accuracy:.4f} ({final_accuracy*100:.2f}%)")
+            print(f"Best validation accuracy: {best_accuracy:.4f} ({best_accuracy*100:.2f}%)")
+            if self.history['early_stopped']:
+                print(f"Early stopped at round: {self.history['early_stop_round']}")
             print("="*80 + "\n")
         
         return self.history
